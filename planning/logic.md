@@ -1,12 +1,12 @@
 # Game logic
+## Pricing
+As price goes up, the amount of people who can afford the product decreases.
+You can price the devices however you like, but it should be over the cost price if you want to make a profit.
+
 ## Products
-### Smasnug Galoxy S series phones
+### Smasnug Galoxy phones
 
-### Smasnug Galoxy A series phones
-
-### Smasnug Galoxy S series tablets
-
-### Smasnug Galoxy A series tablets
+### Smasnug Galoxy tablets
 
 ### Smasnug The Frome
 
