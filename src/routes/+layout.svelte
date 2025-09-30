@@ -27,9 +27,11 @@
 <div class="container mx-auto flex flex-col gap-4">
     <div class="flex flex-row w-full pt-4 gap-4">
         <h1 class="text-4xl">Smasnug Factory Simulator</h1>
-        <div class="grow"></div>
-        <div><span class="text-4xl">{$state.money}</span> Smascoins</div>
-        <div><span class="text-4xl">{$state.currentDay}</span> Days</div>
+        {#if !(page.url.pathname === "/")}
+            <div class="grow"></div>
+            <div><span class="text-4xl">{$state.money}</span> Smascoins</div>
+            <div><span class="text-4xl">{$state.currentDay}</span> Days</div>
+        {/if}
     </div>
     <div class="flex flex-row w-full gap-2">
         {#each tabs as item}
