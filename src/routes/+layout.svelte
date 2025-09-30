@@ -61,7 +61,7 @@
             </div>
         {/if}
     </div>
-    <div class="flex flex-row w-full gap-2">
+    <div class="flex flex-row w-full gap-2 flex-wrap">
         {#each tabs as item}
             <Button
                 variant={page.url.pathname === item.href ? "default" : "ghost"}
