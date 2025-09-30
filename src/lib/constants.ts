@@ -36,3 +36,23 @@ export const ProductTypes = {
     costToStart: 100000,
   },
 };
+
+export const FactoryConstants = {
+  baseCostMultiplier: 2, // Used to calculate cost, based off cost of product
+  baseEfficiency: 1.0,
+  upgrades: {
+    costIncrease: 0.1,
+    efficiencyIncrease: 0.1,
+  },
+};
+
+export const DemandConstants = {
+  maxDemandMultiplier: 5, // Cannot exceed 5x
+  baseDemandMultiplier: 1,
+};
+
+export const AdvertisingConstants = {
+  maxEffectiveBudget: 1000000, // max budget that affects the formula
+  formulaDivisor: 100000, // what ad budget is divided by
+  // formula: sqrt(min(Ad budget, maxBudgetForFormula) / formulaDivisor)
+};
