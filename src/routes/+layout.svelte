@@ -4,6 +4,15 @@
     import favicon from "$lib/assets/favicon.svg";
     import { state } from "$lib/state.svelte";
     import { Button } from "$lib/components/ui/button";
+    import { page } from "$app/state";
+
+    const tabs = [
+        { label: "Products", href: "/" },
+        { label: "Advertising", href: "/advertising" },
+        { label: "Expansion", href: "/expansion" },
+        { label: "Analytics", href: "/analytics" },
+        { label: "Settings", href: "/settings" },
+    ];
 
     let { children } = $props();
 </script>
@@ -22,10 +31,12 @@
         <div><span class="text-4xl">{$state.currentDay}</span> Days</div>
     </div>
     <div class="flex flex-row w-full gap-2">
-        <Button variant="default">Products</Button>
-        <Button variant="ghost">Advertising</Button>
-        <Button variant="ghost">Expansion</Button>
-        <Button variant="ghost">Analytics</Button>
+        {#each tabs as item}
+            <Button
+                variant={page.url.pathname === item.href ? "default" : "ghost"}
+                href={item.href}>{item.label}</Button
+            >
+        {/each}
     </div>
     {@render children?.()}
 </div>
