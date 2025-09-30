@@ -76,7 +76,8 @@ Base demand
       demand: 0,
       earned: 0,
       sold: 0
-    }
+    },
+    ...
   }
 }
 ```
