@@ -62,10 +62,17 @@ Base demand
 {
   money: 10000,
   demandMultiplier: 1,
+  currentDay: 1,
+  lastOnline: 0,
   factories: [
     {
       efficiency: 1,
-      type: 'phone'
+      type: 'phone',
+      purchaseData: {
+        cost: 1000,
+        day: 1,
+      },
+      produced: 0,
     }
   ],
   products: {
@@ -73,9 +80,9 @@ Base demand
       startedProduction: false,
       sellingPrice: 500,
       stock: 0,
-      demand: 0,
-      earned: 0,
-      sold: 0
+      profit: 0,
+      sold: 0,
+      produced: 0
     },
     ...
   }
