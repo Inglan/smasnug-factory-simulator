@@ -1,5 +1,5 @@
 import { persisted } from "svelte-persisted-store";
-import type { DeviceTypes, Product } from "./types";
+import type { ProductTypes, Product } from "./types";
 
 export const state = persisted("smasnug-factory-simulator-state", {
   money: 10000,
@@ -74,7 +74,7 @@ export const state = persisted("smasnug-factory-simulator-state", {
   };
   factories: {
     efficiency: number;
-    type: DeviceTypes;
+    type: ProductTypes;
     totalProduced: number;
     purchaseData: {
       cost: number;
