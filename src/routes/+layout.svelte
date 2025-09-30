@@ -43,8 +43,8 @@
 
 <ModeWatcher />
 
-<div class="container mx-auto flex flex-col gap-4">
-    <div class="flex flex-row w-full pt-4 gap-4">
+<div class="container mx-auto flex flex-col gap-4 p-4">
+    <div class="flex flex-row w-full gap-4">
         <h1 class="text-4xl">Smasnug Factory Simulator</h1>
         <div class="grow"></div>
         {#if !(page.url.pathname === "/")}
