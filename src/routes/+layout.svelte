@@ -5,14 +5,22 @@
     import { state } from "$lib/state.svelte";
     import { Button } from "$lib/components/ui/button";
     import { page } from "$app/state";
+    import {
+        House,
+        Smartphone,
+        Megaphone,
+        Expand,
+        ChartLine,
+        Settings,
+    } from "@lucide/svelte";
 
     const tabs = [
-        { label: "Home", href: "/" },
-        { label: "Products", href: "/products" },
-        { label: "Advertising", href: "/advertising" },
-        { label: "Expansion", href: "/expansion" },
-        { label: "Analytics", href: "/analytics" },
-        { label: "Settings", href: "/settings" },
+        { label: "Home", href: "/", icon: House },
+        { label: "Products", href: "/products", icon: Smartphone },
+        { label: "Advertising", href: "/advertising", icon: Megaphone },
+        { label: "Expansion", href: "/expansion", icon: Expand },
+        { label: "Analytics", href: "/analytics", icon: ChartLine },
+        { label: "Settings", href: "/settings", icon: Settings },
     ];
 
     let { children } = $props();
@@ -37,7 +45,10 @@
         {#each tabs as item}
             <Button
                 variant={page.url.pathname === item.href ? "default" : "ghost"}
-                href={item.href}>{item.label}</Button
+                href={item.href}
+            >
+                <item.icon />
+                {item.label}</Button
             >
         {/each}
     </div>
