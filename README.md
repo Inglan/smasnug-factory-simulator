@@ -5,7 +5,7 @@ The name is a reference to joke you probably don't understand. In this game you 
 For Hack Club Siege
 
 ## Todo
-- [ ] Planning
+- [x] Planning
 - [ ] Variables
 - [ ] MVP (without UI)
 - [ ] More upgrades
