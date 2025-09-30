@@ -1,5 +1,23 @@
-<h1>Welcome to SvelteKit</h1>
-<p>
-    Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the
-    documentation
-</p>
+<script lang="ts">
+    import { state } from "$lib/state.svelte";
+
+    const stats = [
+        { name: "Smascoins", value: $state.money },
+        { name: "Factories", value: $state.factories.length },
+        {
+            name: "Products in production",
+            value: Object.values($state.products).filter(
+                (p: any) => p.startedProduction,
+            ).length,
+        },
+    ];
+</script>
+
+<div class="grid grid-cols-3 gap-4">
+    {#each stats as { name, value }}
+        <div class="flex flex-col items-center bg-card border rounded-md p-4">
+            <span class="text-4xl font-bold">{value}</span>
+            <span class="text-xl">{name}</span>
+        </div>
+    {/each}
+</div>
