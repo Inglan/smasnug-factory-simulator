@@ -74,7 +74,7 @@
     </div>
     {#key page.url}
         <main
-            in:fly={{ duration: 300, x: 10, easing: expoOut }}
+            in:fly={{ duration: 300, x: 10, delay: 300, easing: expoOut }}
             out:fly={{ duration: 300, x: -10, easing: expoOut }}
         >
             {@render children?.()}
