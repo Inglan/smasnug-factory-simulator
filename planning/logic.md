@@ -36,7 +36,7 @@
 - **Cost to start**: 100K
 
 # Factories
-- **Base Cost**: 5K
+- **Base Cost**: 1.5x product cost
 - **Base Efficiency**: 100%
 - **Scaling**: 1.1x more cost but also more efficient
 
@@ -56,3 +56,27 @@ Base production * Efficiency
 Sum of daily production per factory
 ## Demand
 Base demand
+
+# State
+```typescript
+{
+  money: 10000,
+  demandMultiplier: 1,
+  factories: [
+    {
+      efficiency: 1,
+      type: 'phone'
+    }
+  ],
+  products: {
+    phone: {
+      startedProduction: false,
+      sellingPrice: 500,
+      stock: 0,
+      demand: 0,
+      earned: 0,
+      sold: 0
+    }
+  }
+}
+```
