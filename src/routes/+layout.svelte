@@ -44,22 +44,17 @@
 <ModeWatcher />
 
 <div class="container mx-auto flex flex-col gap-4 p-4">
-    <div class="flex flex-row w-full gap-4">
+    <div class="flex flex-col md:flex-row w-full gap-4">
         <h1 class="text-4xl">Smasnug Factory Simulator</h1>
-        <div class="grow"></div>
-        {#if !(page.url.pathname === "/")}
-            <div
-                class="flex flex-row gap-4"
-                transition:fly={{ duration: 300, x: 10, easing: expoOut }}
-            >
-                <div>
-                    <span class="text-4xl">{$state.money}</span> Smascoins
-                </div>
-                <div>
-                    <span class="text-4xl">{$state.currentDay}</span> Days
-                </div>
+        <div class="grow md:block hidden"></div>
+        <div class="flex flex-row gap-4">
+            <div>
+                <span class="text-4xl">{$state.money}</span> Smascoins
             </div>
-        {/if}
+            <div>
+                <span class="text-4xl">{$state.currentDay}</span> Days
+            </div>
+        </div>
     </div>
     <div class="flex flex-row w-full gap-2 flex-wrap">
         {#each tabs as item}
