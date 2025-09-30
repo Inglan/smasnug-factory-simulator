@@ -7,7 +7,8 @@
     import { page } from "$app/state";
 
     const tabs = [
-        { label: "Products", href: "/" },
+        { label: "Home", href: "/" },
+        { label: "Products", href: "/products" },
         { label: "Advertising", href: "/advertising" },
         { label: "Expansion", href: "/expansion" },
         { label: "Analytics", href: "/analytics" },
