@@ -39,3 +39,20 @@
 - **Base Cost**: 5K
 - **Base Efficiency**: 100%
 - **Scaling**: 1.1x more cost but also more efficient
+
+# Demand
+## Multiplier
+This will multiply with the base demand. It will decrease over time, and it can be increased by advertising. It cannot exceed 5x.
+
+# Advertising
+Launching a campaign adds to the demand multiplier, based on the budget.
+
+sqrt(min(Ad budget, 1000000)/100000)
+
+# Mechanics
+## Daily production per factory
+Base production * Efficiency
+## Total daily production
+Sum of daily production per factory
+## Demand
+Base demand
