@@ -13,7 +13,7 @@
 - **Cost**: 400
 - **Base Demand**: 20 devices/day
 - **Production**: 10 devices/factory/day
-- **Cost to start**: 10K
+- **Cost to start**: 100K
 ## TV (Smasnug The Frome)
 - **Cost**: 1000
 - **Base Demand**: 5 devices/day
