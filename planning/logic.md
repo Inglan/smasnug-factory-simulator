@@ -34,3 +34,8 @@
 - **Base Demand**: 10 devices/day
 - **Production**: 5 devices/factory/day
 - **Cost to start**: 100K
+
+# Factories
+- **Base Cost**: 5K
+- **Base Efficiency**: 100%
+- **Scaling**: 1.1x more cost but also more efficient
