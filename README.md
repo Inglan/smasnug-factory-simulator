@@ -12,3 +12,4 @@ For Hack Club Siege
 - [ ] More devices
 - [ ] Automation (hiring people?)
 - [ ] UI
+- [ ] Responsive UI
