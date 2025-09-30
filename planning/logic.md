@@ -64,6 +64,11 @@ Base demand
   demandMultiplier: 1,
   currentDay: 1,
   lastOnline: 0,
+  analytics: {
+    dailyRevenue: [],
+    dailyExpenses: [],
+    dailyProfit: []
+  },
   factories: [
     {
       efficiency: 1,
