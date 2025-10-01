@@ -1,6 +1,6 @@
 import type { ConstantProduct } from "./types";
 
-export const ProductTypes = {
+export const Products = {
   phone: {
     name: "Galoxy",
     cost: 300,

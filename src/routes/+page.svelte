@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { ProductTypes } from "$lib/constants";
+    import { Products } from "$lib/constants";
     import { state } from "$lib/state.svelte";
     import type { ConstantProduct } from "$lib/types";
 
@@ -29,7 +29,7 @@
             value: (() => {
                 // Find the key of the product with the highest totalSold
                 const entries = Object.entries($state.products) as [
-                    keyof typeof ProductTypes,
+                    keyof typeof Products,
                     any,
                 ][];
                 if (entries.length === 0) return "None";
@@ -43,13 +43,10 @@
                         },
                         {
                             product: { totalSold: 0 },
-                            key: "" as keyof typeof ProductTypes,
+                            key: "" as keyof typeof Products,
                         },
                     );
-                return (
-                    ProductTypes[key as keyof typeof ProductTypes]?.name ||
-                    "None"
-                );
+                return Products[key as keyof typeof Products]?.name || "None";
             })(),
         },
     ];
