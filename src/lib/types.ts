@@ -10,6 +10,7 @@ export type Product = {
   startedProduction: boolean;
   sellingPrice: number;
   stock: number;
+  totalRevenue: number;
   totalProfit: number;
   totalSold: number;
   totalProduced: number;
