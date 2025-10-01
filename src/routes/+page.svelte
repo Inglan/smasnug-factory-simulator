@@ -1,6 +1,7 @@
 <script lang="ts">
     import { ProductTypes } from "$lib/constants";
     import { state } from "$lib/state.svelte";
+    import type { ConstantProduct } from "$lib/types";
 
     const stats = [
         { name: "Smascoins", value: $state.money },
@@ -25,19 +26,31 @@
         },
         {
             name: "Most popular product",
-            value:
-                ProductTypes[
-                    Object.entries($state.products)
-                        .map(([key, product]) => ({ product, key }))
-                        .reduce(
-                            (max, { product, key }) => {
-                                return product.totalSold > max.product.totalSold
-                                    ? { product, key }
-                                    : max;
-                            },
-                            { product: { totalSold: 0 }, key: "" },
-                        ).key
-                ]?.name || "None",
+            value: (() => {
+                // Find the key of the product with the highest totalSold
+                const entries = Object.entries($state.products) as [
+                    keyof typeof ProductTypes,
+                    any,
+                ][];
+                if (entries.length === 0) return "None";
+                const { key } = entries
+                    .map(([key, product]) => ({ product, key }))
+                    .reduce(
+                        (max, { product, key }) => {
+                            return product.totalSold > max.product.totalSold
+                                ? { product, key }
+                                : max;
+                        },
+                        {
+                            product: { totalSold: 0 },
+                            key: "" as keyof typeof ProductTypes,
+                        },
+                    );
+                return (
+                    ProductTypes[key as keyof typeof ProductTypes]?.name ||
+                    "None"
+                );
+            })(),
         },
     ];
 </script>
