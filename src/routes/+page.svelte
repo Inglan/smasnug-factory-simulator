@@ -25,18 +25,19 @@
         },
         {
             name: "Most popular product",
-            value: ProductTypes[
-                Object.entries($state.products)
-                    .map(([key, product]) => ({ product, key }))
-                    .reduce(
-                        (max, { product, key }) => {
-                            return product.totalSold > max.product.totalSold
-                                ? { product, key }
-                                : max;
-                        },
-                        { product: { totalSold: 0 }, key: "" },
-                    ).key
-            ]?.name,
+            value:
+                ProductTypes[
+                    Object.entries($state.products)
+                        .map(([key, product]) => ({ product, key }))
+                        .reduce(
+                            (max, { product, key }) => {
+                                return product.totalSold > max.product.totalSold
+                                    ? { product, key }
+                                    : max;
+                            },
+                            { product: { totalSold: 0 }, key: "" },
+                        ).key
+                ]?.name || "None",
         },
     ];
 </script>
