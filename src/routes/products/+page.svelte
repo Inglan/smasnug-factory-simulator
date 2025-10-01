@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Button from "$lib/components/ui/button/button.svelte";
     import { Products } from "$lib/constants";
     import { state } from "$lib/state.svelte";
     import clsx from "clsx";
@@ -13,14 +14,29 @@
         {@const productInfo = getProduct(productId as keyof typeof Products)}
         <div
             class={clsx(
-                "flex flex-col bg-card border rounded-md p-4",
+                "flex flex-col bg-card border rounded-md p-4 gap-2",
                 !product.startedProduction &&
                     "border-dashed opacity-75 hover:opacity-100 duration-300",
             )}
         >
-            <h2 class="text-2xl">
-                {productInfo.name}
-            </h2>
+            <div class="w-full flex flex-row gap-2">
+                <h2 class="text-2xl">
+                    {productInfo.name}
+                </h2>
+                <div class="grow"></div>
+                {#if product.startedProduction}
+                    <Button>Buy factory</Button>
+                    <Button>Set price</Button>
+                {:else}
+                    <Button
+                        onclick={() =>
+                            ($state.products[productId].startedProduction =
+                                true)}
+                    >
+                        Start Production
+                    </Button>
+                {/if}
+            </div>
             <div class="grid grid-cols-2">
                 <div>Selling for ${product.sellingPrice}</div>
                 <div>{product.stock} in stock</div>
