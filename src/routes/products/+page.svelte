@@ -53,8 +53,9 @@
                 {:else}
                     <Button
                         onclick={() =>
-                            ($state.products[productId].startedProduction =
-                                true)}
+                            ($state.products[
+                                productId as keyof typeof Products
+                            ].startedProduction = true)}
                     >
                         Start Production
                     </Button>
