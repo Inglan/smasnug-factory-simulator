@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { ProductTypes } from "$lib/constants";
     import { state } from "$lib/state.svelte";
 
     const stats = [
@@ -21,6 +22,21 @@
             value: Object.values($state.products)
                 .map((product) => product.totalSold)
                 .reduce((acc, curr) => acc + curr, 0),
+        },
+        {
+            name: "Most popular product",
+            value: ProductTypes[
+                Object.entries($state.products)
+                    .map(([key, product]) => ({ product, key }))
+                    .reduce(
+                        (max, { product, key }) => {
+                            return product.totalSold > max.product.totalSold
+                                ? { product, key }
+                                : max;
+                        },
+                        { product: { totalSold: 0 }, key: "" },
+                    ).key
+            ]?.name,
         },
     ];
 </script>
