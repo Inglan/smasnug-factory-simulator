@@ -13,6 +13,7 @@
         ChartLine,
         Settings,
     } from "@lucide/svelte";
+    import { Toaster } from "$lib/components/ui/sonner/index.js";
 
     const tabs = [
         { label: "Home", href: "/", icon: House },
@@ -42,6 +43,8 @@
 </svelte:head>
 
 <ModeWatcher />
+
+<Toaster />
 
 <div class="container mx-auto flex flex-col gap-4 p-4">
     <div class="flex flex-col md:flex-row w-full gap-4">
