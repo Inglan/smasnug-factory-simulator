@@ -44,7 +44,7 @@
 
 <ModeWatcher />
 
-<Toaster />
+<Toaster position="top-center" />
 
 <div class="container mx-auto flex flex-col gap-4 p-4">
     <div class="flex flex-col md:flex-row w-full gap-4">
