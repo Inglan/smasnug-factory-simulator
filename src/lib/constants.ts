@@ -29,7 +29,7 @@ export const ProductTypes = {
     productionPerFactoryPerDay: 10,
     costToStart: 10000,
   },
-  smartwatch: {
+  watch: {
     name: "Watch",
     cost: 200,
     baseDemandPerDay: 20,
@@ -48,7 +48,7 @@ export const ProductTypes = {
   tablet: ConstantProduct;
   tv: ConstantProduct;
   earbuds: ConstantProduct;
-  smartwatch: ConstantProduct;
+  watch: ConstantProduct;
   laptop: ConstantProduct;
 };
 
