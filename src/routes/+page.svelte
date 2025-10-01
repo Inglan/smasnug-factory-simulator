@@ -57,7 +57,7 @@
 
 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
     {#each stats as { name, value }}
-        <div class="flex flex-col items-center bg-card border rounded-md p-4">
+        <div class="flex flex-col items-center bg-card border rounded-md p-8">
             <span class="text-4xl font-bold">{value}</span>
             <span class="text-xl">{name}</span>
         </div>
