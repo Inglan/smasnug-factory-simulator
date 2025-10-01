@@ -14,7 +14,6 @@ export type StateProduct = {
   totalProfit: number;
   totalSold: number;
   totalProduced: number;
-  product: ConstantProduct;
 };
 
 export type ConstantProduct = {

@@ -22,7 +22,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalRevenue: 0,
       totalSold: 0,
       totalProduced: 0,
-      product: Product.phone,
     },
     tablet: {
       startedProduction: false,
@@ -32,7 +31,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalRevenue: 0,
       totalSold: 0,
       totalProduced: 0,
-      product: Product.tablet,
     },
     tv: {
       startedProduction: false,
@@ -42,7 +40,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalRevenue: 0,
       totalSold: 0,
       totalProduced: 0,
-      product: Product.tv,
     },
     earbuds: {
       startedProduction: false,
@@ -52,7 +49,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalRevenue: 0,
       totalSold: 0,
       totalProduced: 0,
-      product: Product.earbuds,
     },
     watch: {
       startedProduction: false,
@@ -62,7 +58,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalRevenue: 0,
       totalSold: 0,
       totalProduced: 0,
-      product: Product.watch,
     },
     laptop: {
       startedProduction: false,
@@ -72,7 +67,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalRevenue: 0,
       totalSold: 0,
       totalProduced: 0,
-      product: Product.laptop,
     },
   },
 } as {
