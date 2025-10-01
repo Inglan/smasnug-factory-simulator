@@ -16,6 +16,12 @@
                 .map((product) => product.totalRevenue)
                 .reduce((acc, curr) => acc + curr, 0),
         },
+        {
+            name: "Total Sales",
+            value: Object.values($state.products)
+                .map((product) => product.totalSold)
+                .reduce((acc, curr) => acc + curr, 0),
+        },
     ];
 </script>
 
