@@ -10,6 +10,12 @@
                 (p: any) => p.startedProduction,
             ).length,
         },
+        {
+            name: "Total Revenue",
+            value: Object.values($state.products)
+                .map((product) => product.totalRevenue)
+                .reduce((acc, curr) => acc + curr, 0),
+        },
     ];
 </script>
 
