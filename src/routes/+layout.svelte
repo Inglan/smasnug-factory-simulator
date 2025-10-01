@@ -67,7 +67,7 @@
             >
         {/each}
     </div>
-    {#key page.url}
+    {#key page.url.pathname}
         <main
             in:fly={{ duration: 300, x: 10, delay: 300, easing: expoOut }}
             out:fly={{ duration: 300, x: -10, easing: expoOut }}
