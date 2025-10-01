@@ -1,35 +1,41 @@
 export const ProductTypes = {
   phone: {
+    name: "Galoxy",
     cost: 300,
     baseDemandPerDay: 100,
     productionPerFactoryPerDay: 50,
     costToStart: 1000,
   },
   tablet: {
+    name: "Galoxy Tab",
     cost: 400,
     baseDemandPerDay: 20,
     productionPerFactoryPerDay: 10,
     costToStart: 100000,
   },
   tv: {
+    name: "The Frome",
     cost: 1000,
     baseDemandPerDay: 5,
     productionPerFactoryPerDay: 2,
     costToStart: 1000000,
   },
   earbuds: {
+    name: "Buds",
     cost: 100,
     baseDemandPerDay: 20,
     productionPerFactoryPerDay: 10,
     costToStart: 10000,
   },
   smartwatch: {
+    name: "Watch",
     cost: 200,
     baseDemandPerDay: 20,
     productionPerFactoryPerDay: 10,
     costToStart: 10000,
   },
   laptop: {
+    name: "Galoxy Book",
     cost: 800,
     baseDemandPerDay: 10,
     productionPerFactoryPerDay: 5,
