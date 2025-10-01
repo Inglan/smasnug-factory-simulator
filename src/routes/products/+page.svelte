@@ -1,7 +1,9 @@
 <script lang="ts">
     import Button from "$lib/components/ui/button/button.svelte";
+    import Separator from "$lib/components/ui/separator/separator.svelte";
     import { Products } from "$lib/constants";
     import { state } from "$lib/state.svelte";
+    import type { ProductTypes } from "$lib/types";
     import clsx from "clsx";
 
     function getProduct(productId: keyof typeof Products) {
@@ -20,12 +22,33 @@
             )}
         >
             <div class="w-full flex flex-row gap-2">
-                <h2 class="text-2xl">
-                    {productInfo.name}
-                </h2>
+                <div class="flex flex-col">
+                    <h2 class="text-2xl">
+                        {productInfo.name}
+                    </h2>
+                    <h3 class="text-md">
+                        {$state.factories.filter(
+                            (factory) => factory.type === productId,
+                        ).length} factories
+                    </h3>
+                </div>
                 <div class="grow"></div>
                 {#if product.startedProduction}
-                    <Button>Buy factory</Button>
+                    <Button
+                        onclick={() => {
+                            let factories = $state.factories;
+                            factories.push({
+                                type: productId as ProductTypes,
+                                efficiency: 1,
+                                purchaseData: {
+                                    day: $state.currentDay,
+                                    cost: 1,
+                                },
+                                totalProduced: 0,
+                            });
+                            $state.factories = factories;
+                        }}>Buy factory</Button
+                    >
                     <Button>Set price</Button>
                 {:else}
                     <Button
@@ -37,6 +60,7 @@
                     </Button>
                 {/if}
             </div>
+            <Separator />
             <div class="grid grid-cols-2">
                 <div>Selling for ${product.sellingPrice}</div>
                 <div>{product.stock} in stock</div>
