@@ -1,3 +1,5 @@
+import type { ConstantProduct } from "./types";
+
 export const ProductTypes = {
   phone: {
     name: "Galoxy",
@@ -41,6 +43,13 @@ export const ProductTypes = {
     productionPerFactoryPerDay: 5,
     costToStart: 100000,
   },
+} as {
+  phone: ConstantProduct;
+  tablet: ConstantProduct;
+  tv: ConstantProduct;
+  earbuds: ConstantProduct;
+  smartwatch: ConstantProduct;
+  laptop: ConstantProduct;
 };
 
 export const FactoryConstants = {
