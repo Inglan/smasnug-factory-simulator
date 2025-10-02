@@ -80,6 +80,7 @@ export const state = persisted("smasnug-factory-simulator-state", {
     purchaseData: {
       cost: number;
       day: number;
+      value: number;
     };
   }[];
   products: {

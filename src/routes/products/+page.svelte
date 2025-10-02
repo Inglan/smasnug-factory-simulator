@@ -62,6 +62,7 @@
                                 purchaseData: {
                                     day: $state.currentDay,
                                     cost: 1,
+                                    value: 1,
                                 },
                                 totalProduced: 0,
                             });
