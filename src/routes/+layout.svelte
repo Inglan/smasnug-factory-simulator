@@ -55,7 +55,7 @@
                 <span class="text-4xl">${$state.money}</span>
             </div>
             <div>
-                <span class="text-4xl">{$state.currentDay}</span> Days
+                <span class="text-4xl">Day {$state.currentDay}</span>
             </div>
         </div>
     </div>
