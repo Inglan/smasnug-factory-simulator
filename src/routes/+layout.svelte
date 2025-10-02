@@ -15,14 +15,20 @@
     } from "@lucide/svelte";
     import { Toaster } from "$lib/components/ui/sonner/index.js";
 
-    const tabs = [
-        { label: "Home", href: "/", icon: House },
-        { label: "Products", href: "/products", icon: Smartphone },
-        { label: "Advertising", href: "/advertising", icon: Megaphone },
-        { label: "Factories", href: "/factories", icon: Factory },
-        { label: "Analytics", href: "/analytics", icon: ChartLine },
-        { label: "Settings", href: "/settings", icon: Settings },
-    ];
+    const tabs = $derived(
+        [
+            { label: "Home", href: "/", icon: House },
+            { label: "Products", href: "/products", icon: Smartphone },
+            { label: "Advertising", href: "/advertising", icon: Megaphone },
+            $state.factories.length > 0 && {
+                label: "Factories",
+                href: "/factories",
+                icon: Factory,
+            },
+            { label: "Analytics", href: "/analytics", icon: ChartLine },
+            { label: "Settings", href: "/settings", icon: Settings },
+        ].filter(Boolean),
+    );
 
     import {
         blur,
