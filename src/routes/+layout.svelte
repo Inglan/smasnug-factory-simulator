@@ -34,6 +34,7 @@
         slide,
     } from "svelte/transition";
     import { expoOut } from "svelte/easing";
+    import Separator from "$lib/components/ui/separator/separator.svelte";
 
     let { children } = $props();
 </script>
@@ -54,6 +55,7 @@
             <div>
                 <span class="text-4xl">${$state.money}</span>
             </div>
+            <Separator orientation="vertical" />
             <div>
                 <span class="text-4xl">Day {$state.currentDay}</span>
             </div>
