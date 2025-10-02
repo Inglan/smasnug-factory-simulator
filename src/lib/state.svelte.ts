@@ -15,7 +15,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
   factories: [],
   products: {
     phone: {
-      startedProduction: false,
       sellingPrice: 0,
       stock: 0,
       totalProfit: 0,
@@ -24,7 +23,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     tablet: {
-      startedProduction: false,
       sellingPrice: 0,
       stock: 0,
       totalProfit: 0,
@@ -33,7 +31,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     tv: {
-      startedProduction: false,
       sellingPrice: 0,
       stock: 0,
       totalProfit: 0,
@@ -42,7 +39,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     earbuds: {
-      startedProduction: false,
       sellingPrice: 0,
       stock: 0,
       totalProfit: 0,
@@ -51,7 +47,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     watch: {
-      startedProduction: false,
       sellingPrice: 0,
       stock: 0,
       totalProfit: 0,
@@ -60,7 +55,6 @@ export const state = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     laptop: {
-      startedProduction: false,
       sellingPrice: 0,
       stock: 0,
       totalProfit: 0,

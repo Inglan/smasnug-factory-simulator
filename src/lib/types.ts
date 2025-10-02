@@ -7,7 +7,6 @@ export type ProductTypes =
   | "laptop";
 
 export type StateProduct = {
-  startedProduction: boolean;
   sellingPrice: number;
   stock: number;
   totalRevenue: number;
