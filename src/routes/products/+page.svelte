@@ -72,15 +72,17 @@
                     </Button>
                 {/if}
             </div>
-            <Separator />
-            <div class="grid grid-cols-2">
-                <div>Selling for ${product.sellingPrice}</div>
-                <div>{product.stock} in stock</div>
-                <div>{product.totalSold} sold</div>
-                <div>{product.totalProduced} produced</div>
-                <div>${product.totalRevenue} revenue</div>
-                <div>${product.totalProfit} profit</div>
-            </div>
+            {#if !!$state.factories.filter((factory) => factory.type === productId).length}
+                <Separator />
+                <div class="grid grid-cols-2">
+                    <div>Selling for ${product.sellingPrice}</div>
+                    <div>{product.stock} in stock</div>
+                    <div>{product.totalSold} sold</div>
+                    <div>{product.totalProduced} produced</div>
+                    <div>${product.totalRevenue} revenue</div>
+                    <div>${product.totalProfit} profit</div>
+                </div>
+            {/if}
         </div>
     {/each}
 </div>
