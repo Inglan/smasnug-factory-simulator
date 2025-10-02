@@ -4,7 +4,7 @@
     import type { ConstantProduct } from "$lib/types";
 
     const stats = [
-        { name: "Smascoins", value: $state.money },
+        { name: "Money", value: `$${$state.money}` },
         { name: "Factories", value: $state.factories.length },
         {
             name: "Products in production",

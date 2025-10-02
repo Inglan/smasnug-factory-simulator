@@ -52,7 +52,7 @@
         <div class="grow md:block hidden"></div>
         <div class="flex flex-row gap-4">
             <div>
-                <span class="text-4xl">{$state.money}</span> Smascoins
+                <span class="text-4xl">${$state.money}</span>
             </div>
             <div>
                 <span class="text-4xl">{$state.currentDay}</span> Days
