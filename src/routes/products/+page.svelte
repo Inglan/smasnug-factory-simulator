@@ -17,7 +17,9 @@
         <div
             class={clsx(
                 "flex flex-col bg-card border rounded-md p-4 gap-2",
-                !product.startedProduction &&
+                !$state.factories.filter(
+                    (factory) => factory.type === productId,
+                ).length &&
                     "border-dashed opacity-75 hover:opacity-100 duration-300",
             )}
         >
@@ -33,7 +35,7 @@
                     </h3>
                 </div>
                 <div class="grow"></div>
-                {#if product.startedProduction}
+                {#if !!$state.factories.filter((factory) => factory.type === productId).length}
                     <Button
                         onclick={() => {
                             let factories = $state.factories;
@@ -52,10 +54,19 @@
                     <Button>Set price</Button>
                 {:else}
                     <Button
-                        onclick={() =>
-                            ($state.products[
-                                productId as keyof typeof Products
-                            ].startedProduction = true)}
+                        onclick={() => {
+                            let factories = $state.factories;
+                            factories.push({
+                                type: productId as ProductTypes,
+                                efficiency: 1,
+                                purchaseData: {
+                                    day: $state.currentDay,
+                                    cost: 1,
+                                },
+                                totalProduced: 0,
+                            });
+                            $state.factories = factories;
+                        }}
                     >
                         Start Production
                     </Button>
