@@ -22,7 +22,12 @@
                     </h3>
                 </div>
                 <div class="grow"></div>
-                <Button>Upgrade</Button>
+                <Button
+                    onclick={() => {
+                        $state.factories[index].efficiency +=
+                            factory.efficiency * 0.1;
+                    }}>Upgrade</Button
+                >
             </div>
             <div class="grid grid-cols-2 gap-2">
                 <div class="inline-flex flex-row gap-1 items-center">
@@ -30,7 +35,7 @@
                     {Products[factory.type].name}
                 </div>
                 <div>
-                    {factory.efficiency}x efficiency
+                    {factory.efficiency.toPrecision(3)}x efficiency
                 </div>
                 <div>
                     {factory.totalProduced} produced
