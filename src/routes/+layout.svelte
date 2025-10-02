@@ -9,9 +9,9 @@
         House,
         Smartphone,
         Megaphone,
-        Expand,
         ChartLine,
         Settings,
+        Factory,
     } from "@lucide/svelte";
     import { Toaster } from "$lib/components/ui/sonner/index.js";
 
@@ -19,7 +19,7 @@
         { label: "Home", href: "/", icon: House },
         { label: "Products", href: "/products", icon: Smartphone },
         { label: "Advertising", href: "/advertising", icon: Megaphone },
-        { label: "Expansion", href: "/expansion", icon: Expand },
+        { label: "Factories", href: "/factories", icon: Factory },
         { label: "Analytics", href: "/analytics", icon: ChartLine },
         { label: "Settings", href: "/settings", icon: Settings },
     ];
