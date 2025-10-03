@@ -19,11 +19,15 @@
         [
             { label: "Home", href: "/", icon: House },
             { label: "Products", href: "/products", icon: Smartphone },
-            { label: "Advertising", href: "/advertising", icon: Megaphone },
             $state.factories.length > 0 && {
                 label: "Factories",
                 href: "/factories",
                 icon: Factory,
+            },
+            $state.factories.length > 0 && {
+                label: "Advertising",
+                href: "/advertising",
+                icon: Megaphone,
             },
             { label: "Analytics", href: "/analytics", icon: ChartLine },
             { label: "Settings", href: "/settings", icon: Settings },
