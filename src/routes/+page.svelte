@@ -1,26 +1,26 @@
 <script lang="ts">
     import { Products } from "$lib/constants";
-    import { state } from "$lib/state.svelte";
+    import { gameState } from "$lib/state.svelte";
     import type { ConstantProduct } from "$lib/types";
 
     const stats = [
-        { name: "Money", value: `$${$state.money}` },
-        { name: "Factories", value: $state.factories.length },
+        { name: "Money", value: `$${$gameState.money}` },
+        { name: "Factories", value: $gameState.factories.length },
         {
             name: "Products in production",
-            value: Object.values($state.products).filter(
+            value: Object.values($gameState.products).filter(
                 (p: any) => p.startedProduction,
             ).length,
         },
         {
             name: "Total Revenue",
-            value: Object.values($state.products)
+            value: Object.values($gameState.products)
                 .map((product) => product.totalRevenue)
                 .reduce((acc, curr) => acc + curr, 0),
         },
         {
             name: "Total Sales",
-            value: Object.values($state.products)
+            value: Object.values($gameState.products)
                 .map((product) => product.totalSold)
                 .reduce((acc, curr) => acc + curr, 0),
         },
@@ -28,7 +28,7 @@
             name: "Most popular product",
             value: (() => {
                 // Find the key of the product with the highest totalSold
-                const entries = Object.entries($state.products) as [
+                const entries = Object.entries($gameState.products) as [
                     keyof typeof Products,
                     any,
                 ][];

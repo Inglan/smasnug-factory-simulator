@@ -1,7 +1,7 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
     import Button from "$lib/components/ui/button/button.svelte";
-    import { state } from "$lib/state.svelte";
+    import { gameState } from "$lib/state.svelte";
     import { toast } from "svelte-sonner";
 </script>
 
@@ -9,7 +9,7 @@
 
 <Button
     onclick={() => {
-        state.reset();
+        gameState.reset();
         toast.success("Progress reset!");
         goto("/");
     }}>Reset progress</Button
@@ -17,6 +17,6 @@
 
 <Button
     onclick={() => {
-        $state.money = Number(prompt("Set money")) || 0;
+        $gameState.money = Number(prompt("Set money")) || 0;
     }}>Set money</Button
 >

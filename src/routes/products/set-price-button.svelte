@@ -5,7 +5,7 @@
     import type { StateProduct } from "$lib/types";
     import * as Dialog from "$lib/components/ui/dialog/index.js";
     import Input from "$lib/components/ui/input/input.svelte";
-    import { state } from "$lib/state.svelte";
+    import { gameState } from "$lib/state.svelte";
 
     let { product }: { product: StateProduct } = $props();
 

@@ -8,14 +8,14 @@
         upgradeFactory,
     } from "$lib/game/factories";
     import { getProduct } from "$lib/game/utils";
-    import { state } from "$lib/state.svelte";
+    import { gameState } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import { Smartphone } from "@lucide/svelte";
     import clsx from "clsx";
 </script>
 
 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-    {#each $state.factories as factory, index}
+    {#each $gameState.factories as factory, index}
         <div class={clsx("flex flex-col bg-card border rounded-md p-4 gap-2")}>
             <div class="w-full flex flex-row gap-2">
                 <div class="flex flex-col">
@@ -28,7 +28,8 @@
                 </div>
                 <div class="grow"></div>
                 <Button
-                    disabled={getFactoryUpgradeCost(factory) > $state.money ||
+                    disabled={getFactoryUpgradeCost(factory) >
+                        $gameState.money ||
                         factory.level >= FactoryConstants.upgrades.maxLevel}
                     onclick={() => {
                         upgradeFactory(index);

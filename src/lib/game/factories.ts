@@ -1,10 +1,10 @@
 import { FactoryConstants, Products } from "$lib/constants";
-import { state } from "$lib/state.svelte";
+import { gameState } from "$lib/state.svelte";
 import type { Factory, ProductTypes } from "$lib/types";
 import { get } from "svelte/store";
 
 export function getFactoryCost(type: ProductTypes) {
-  const currentState = get(state);
+  const currentState = get(gameState);
   const productCost = Products[type].cost;
   const factoryCount = currentState.factories.filter(
     (factory) => factory.type === type,
@@ -18,7 +18,7 @@ export function getFactoryCost(type: ProductTypes) {
 
 export function buyFactory(type: ProductTypes) {
   const factoryCost = Products[type].cost * FactoryConstants.baseCostMultiplier;
-  const currentState = get(state);
+  const currentState = get(gameState);
   if (currentState.money < factoryCost) return;
   let factories = currentState.factories;
   factories.push({
@@ -31,7 +31,7 @@ export function buyFactory(type: ProductTypes) {
     },
     totalProduced: 0,
   });
-  state.set({
+  gameState.set({
     ...currentState,
     factories,
     money: currentState.money - factoryCost,
@@ -46,7 +46,7 @@ export function getFactoryUpgradeCost(factory: Factory) {
 }
 
 export function upgradeFactory(index: number) {
-  const currentState = get(state);
+  const currentState = get(gameState);
   const upgradeCost = getFactoryUpgradeCost(currentState.factories[index]);
   if (currentState.money < upgradeCost) return;
   if (currentState.factories[index].level >= FactoryConstants.upgrades.maxLevel)
@@ -54,7 +54,7 @@ export function upgradeFactory(index: number) {
   let factories = currentState.factories;
   factories[index].level++;
   factories[index].purchaseData.value += upgradeCost;
-  state.set({
+  gameState.set({
     ...currentState,
     factories,
     money: currentState.money - upgradeCost,

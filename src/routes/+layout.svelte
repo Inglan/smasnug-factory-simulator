@@ -2,7 +2,7 @@
     import "../app.css";
     import { ModeWatcher } from "mode-watcher";
     import favicon from "$lib/assets/favicon.svg";
-    import { state } from "$lib/state.svelte";
+    import { gameState } from "$lib/state.svelte";
     import { Button } from "$lib/components/ui/button";
     import { page } from "$app/state";
     import { init } from "$lib/game/loop";
@@ -22,12 +22,12 @@
         [
             { label: "Home", href: "/", icon: House },
             { label: "Products", href: "/products", icon: Smartphone },
-            $state.factories.length > 0 && {
+            $gameState.factories.length > 0 && {
                 label: "Factories",
                 href: "/factories",
                 icon: Factory,
             },
-            $state.factories.length > 0 && {
+            $gameState.factories.length > 0 && {
                 label: "Advertising",
                 href: "/advertising",
                 icon: Megaphone,
@@ -67,11 +67,11 @@
         <div class="grow md:block hidden"></div>
         <div class="flex flex-row gap-4">
             <div>
-                <span class="text-4xl">${$state.money}</span>
+                <span class="text-4xl">${$gameState.money}</span>
             </div>
             <Separator orientation="vertical" />
             <div>
-                <span class="text-4xl">Day {$state.currentDay}</span>
+                <span class="text-4xl">Day {$gameState.currentDay}</span>
             </div>
         </div>
     </div>
