@@ -26,7 +26,7 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
   ],
   products: {
     phone: {
-      sellingPrice: 0,
+      sellingPrice: 900,
       stock: 0,
       totalProfit: 0,
       totalRevenue: 0,
@@ -34,7 +34,7 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     tablet: {
-      sellingPrice: 0,
+      sellingPrice: 1200,
       stock: 0,
       totalProfit: 0,
       totalRevenue: 0,
@@ -42,7 +42,7 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     tv: {
-      sellingPrice: 0,
+      sellingPrice: 3000,
       stock: 0,
       totalProfit: 0,
       totalRevenue: 0,
@@ -50,7 +50,7 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     earbuds: {
-      sellingPrice: 0,
+      sellingPrice: 300,
       stock: 0,
       totalProfit: 0,
       totalRevenue: 0,
@@ -58,7 +58,7 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     watch: {
-      sellingPrice: 0,
+      sellingPrice: 600,
       stock: 0,
       totalProfit: 0,
       totalRevenue: 0,
@@ -66,7 +66,7 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
       totalProduced: 0,
     },
     laptop: {
-      sellingPrice: 0,
+      sellingPrice: 2400,
       stock: 0,
       totalProfit: 0,
       totalRevenue: 0,
