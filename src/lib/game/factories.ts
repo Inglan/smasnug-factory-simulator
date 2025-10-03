@@ -3,6 +3,19 @@ import { state } from "$lib/state.svelte";
 import type { ProductTypes } from "$lib/types";
 import { get } from "svelte/store";
 
+export function getFactoryCost(type: ProductTypes) {
+  const currentState = get(state);
+  const productCost = Products[type].cost;
+  const factoryCount = currentState.factories.filter(
+    (factory) => factory.type === type,
+  ).length;
+  const factoryCostMultiplier =
+    FactoryConstants.baseCostMultiplier +
+    FactoryConstants.baseCostMultiplerPerFactory * factoryCount;
+
+  return productCost * factoryCostMultiplier;
+}
+
 export function buyFactory(type: ProductTypes) {
   const factoryCost = Products[type].cost * FactoryConstants.baseCostMultiplier;
   const currentState = get(state);

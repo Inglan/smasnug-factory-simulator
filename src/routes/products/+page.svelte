@@ -1,8 +1,8 @@
 <script lang="ts">
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
-    import { Products } from "$lib/constants";
-    import { buyFactory } from "$lib/game/factories";
+    import { FactoryConstants, Products } from "$lib/constants";
+    import { buyFactory, getFactoryCost } from "$lib/game/factories";
     import { state } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import clsx from "clsx";
@@ -40,8 +40,11 @@
                     <Button
                         onclick={() => {
                             buyFactory(productId as ProductTypes);
-                        }}>Buy factory</Button
-                    >
+                        }}
+                        >Buy factory (${getFactoryCost(
+                            productId as ProductTypes,
+                        )})
+                    </Button>
                     <Button>Set price</Button>
                 {:else}
                     <Button
@@ -49,7 +52,9 @@
                             buyFactory(productId as ProductTypes);
                         }}
                     >
-                        Start Production
+                        Start Production (${getFactoryCost(
+                            productId as ProductTypes,
+                        )})
                     </Button>
                 {/if}
             </div>
