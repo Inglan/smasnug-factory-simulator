@@ -23,6 +23,7 @@
                 </div>
                 <div class="grow"></div>
                 <Button
+                    disabled={getFactoryUpgradeCost(factory) > $state.money}
                     onclick={() => {
                         upgradeFactory(index);
                     }}>Upgrade (${getFactoryUpgradeCost(factory)})</Button
