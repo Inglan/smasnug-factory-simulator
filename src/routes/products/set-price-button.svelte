@@ -10,7 +10,7 @@
     let { product, productId }: { product: StateProduct; productId: string } =
         $props();
 
-    let enteredPrice = $state() as number;
+    let enteredPrice = $state() as number | null;
     let priceDialogOpen = $state(false);
 
     function updatePrice() {
@@ -25,7 +25,12 @@
     }
 </script>
 
-<Dialog.Root bind:open={priceDialogOpen}>
+<Dialog.Root
+    bind:open={priceDialogOpen}
+    onOpenChange={(open) => {
+        if (open) enteredPrice = null;
+    }}
+>
     <Dialog.Trigger class={buttonVariants()}>Set price</Dialog.Trigger>
     <Dialog.Content>
         <Dialog.Header>
