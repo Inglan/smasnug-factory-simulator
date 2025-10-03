@@ -6,6 +6,7 @@
     import { state } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import clsx from "clsx";
+    import SetPriceButton from "./set-price-button.svelte";
 
     function getProduct(productId: keyof typeof Products) {
         return Products[productId];
@@ -51,7 +52,7 @@
                     (${getFactoryCost(productId as ProductTypes)})
                 </Button>
                 {#if !!$state.factories.filter((factory) => factory.type === productId).length}
-                    <Button>Set price</Button>
+                    <SetPriceButton {product} />
                 {/if}
             </div>
             {#if !!$state.factories.filter((factory) => factory.type === productId).length}
