@@ -16,13 +16,6 @@ export function getFactoryCost(type: ProductTypes) {
   return Math.round(productCost * factoryCostMultiplier);
 }
 
-export function getFactoryUpgradeCost(factory: Factory) {
-  const calculatedPrice =
-    FactoryConstants.upgrades.costIncrease ** (factory.level + 1) *
-    factory.purchaseData.cost;
-  return Math.round(calculatedPrice);
-}
-
 export function buyFactory(type: ProductTypes) {
   const factoryCost = Products[type].cost * FactoryConstants.baseCostMultiplier;
   const currentState = get(state);
@@ -42,5 +35,26 @@ export function buyFactory(type: ProductTypes) {
     ...currentState,
     factories,
     money: currentState.money - factoryCost,
+  });
+}
+
+export function getFactoryUpgradeCost(factory: Factory) {
+  const calculatedPrice =
+    FactoryConstants.upgrades.costIncrease ** (factory.level + 1) *
+    factory.purchaseData.cost;
+  return Math.round(calculatedPrice);
+}
+
+export function upgradeFactory(index: number) {
+  const currentState = get(state);
+  const upgradeCost = getFactoryUpgradeCost(currentState.factories[index]);
+  if (currentState.money < upgradeCost) return;
+  let factories = currentState.factories;
+  factories[index].level++;
+  factories[index].purchaseData.value += upgradeCost;
+  state.set({
+    ...currentState,
+    factories,
+    money: currentState.money - upgradeCost,
   });
 }
