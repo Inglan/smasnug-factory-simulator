@@ -1,7 +1,7 @@
 <script lang="ts">
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
-    import { Products } from "$lib/constants";
+    import { FactoryConstants, Products } from "$lib/constants";
     import { state } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import { Smartphone } from "@lucide/svelte";
@@ -24,8 +24,7 @@
                 <div class="grow"></div>
                 <Button
                     onclick={() => {
-                        $state.factories[index].efficiency +=
-                            factory.efficiency * 0.1;
+                        $state.factories[index].level++;
                     }}>Upgrade</Button
                 >
             </div>
@@ -35,7 +34,12 @@
                     {Products[factory.type].name}
                 </div>
                 <div>
-                    {factory.efficiency.toPrecision(3)}x efficiency
+                    {(
+                        factory.level **
+                            FactoryConstants.upgrades.efficiencyIncrease +
+                        1
+                    ).toPrecision(3)}x efficiency
+                    {factory.level}
                 </div>
                 <div>
                     {factory.totalProduced} produced

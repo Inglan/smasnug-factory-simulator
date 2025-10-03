@@ -3,7 +3,7 @@ import type { ProductTypes, StateProduct } from "./types";
 import { Products as Product } from "./constants";
 
 export const state = persisted("smasnug-factory-simulator-state", {
-  money: 10000,
+  money: 1000000,
   demandMultiplier: 1,
   currentDay: 0,
   lastOnline: 0,
@@ -74,7 +74,7 @@ export const state = persisted("smasnug-factory-simulator-state", {
     dailyProfit: number[];
   };
   factories: {
-    efficiency: number;
+    level: number;
     type: ProductTypes;
     totalProduced: number;
     purchaseData: {

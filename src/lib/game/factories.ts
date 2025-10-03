@@ -23,7 +23,7 @@ export function buyFactory(type: ProductTypes) {
   let factories = currentState.factories;
   factories.push({
     type: type as ProductTypes,
-    efficiency: 1,
+    level: 0,
     purchaseData: {
       day: currentState.currentDay,
       cost: factoryCost,
