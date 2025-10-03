@@ -1,6 +1,6 @@
 import { FactoryConstants, Products } from "$lib/constants";
 import { state } from "$lib/state.svelte";
-import type { ProductTypes } from "$lib/types";
+import type { Factory, ProductTypes } from "$lib/types";
 import { get } from "svelte/store";
 
 export function getFactoryCost(type: ProductTypes) {
@@ -14,6 +14,13 @@ export function getFactoryCost(type: ProductTypes) {
     FactoryConstants.baseCostMultiplierPerFactory * factoryCount;
 
   return Math.round(productCost * factoryCostMultiplier);
+}
+
+export function getFactoryUpgradeCost(factory: Factory) {
+  const calculatedPrice =
+    FactoryConstants.upgrades.costIncrease ** (factory.level + 1) *
+    factory.purchaseData.cost;
+  return Math.round(calculatedPrice);
 }
 
 export function buyFactory(type: ProductTypes) {

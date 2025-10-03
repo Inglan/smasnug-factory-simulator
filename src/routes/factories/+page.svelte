@@ -2,6 +2,7 @@
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
     import { FactoryConstants, Products } from "$lib/constants";
+    import { getFactoryUpgradeCost } from "$lib/game/factories";
     import { state } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import { Smartphone } from "@lucide/svelte";
@@ -25,7 +26,7 @@
                 <Button
                     onclick={() => {
                         $state.factories[index].level++;
-                    }}>Upgrade</Button
+                    }}>Upgrade (${getFactoryUpgradeCost(factory)})</Button
                 >
             </div>
             <div class="grid grid-cols-2 gap-2">
