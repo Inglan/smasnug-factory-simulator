@@ -37,6 +37,8 @@
                 </div>
                 <div class="grow"></div>
                 <Button
+                    disabled={getFactoryCost(productId as ProductTypes) >
+                        $state.money}
                     onclick={() => {
                         buyFactory(productId as ProductTypes);
                     }}
