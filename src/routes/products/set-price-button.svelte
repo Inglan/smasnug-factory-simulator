@@ -38,7 +38,6 @@
         </Dialog.Header>
         <div class="grid gap-4">
             <Input
-                id="price"
                 type="number"
                 bind:value={enteredPrice}
                 onkeyup={(e) => {
