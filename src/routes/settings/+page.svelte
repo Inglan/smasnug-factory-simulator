@@ -14,3 +14,9 @@
         goto("/");
     }}>Reset progress</Button
 >
+
+<Button
+    onclick={() => {
+        $state.money = Number(prompt("Set money")) || 0;
+    }}>Set money</Button
+>
