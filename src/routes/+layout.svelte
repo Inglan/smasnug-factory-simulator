@@ -5,6 +5,7 @@
     import { state } from "$lib/state.svelte";
     import { Button } from "$lib/components/ui/button";
     import { page } from "$app/state";
+    import { init } from "$lib/game/loop";
     import {
         House,
         Smartphone,
@@ -14,6 +15,8 @@
         Factory,
     } from "@lucide/svelte";
     import { Toaster } from "$lib/components/ui/sonner/index.js";
+
+    onMount(init);
 
     const tabs = $derived(
         [
@@ -45,6 +48,7 @@
     } from "svelte/transition";
     import { expoOut } from "svelte/easing";
     import Separator from "$lib/components/ui/separator/separator.svelte";
+    import { onMount } from "svelte";
 
     let { children } = $props();
 </script>
