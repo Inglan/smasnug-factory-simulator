@@ -17,6 +17,8 @@
         if (!(productId in $gameState.products)) return;
         if (!enteredPrice) return;
         if (!Number.isFinite(enteredPrice)) return;
+        if (enteredPrice < 0) return;
+        if (enteredPrice > 1000000) return;
         ($gameState.products as Record<string, StateProduct>)[
             productId
         ].sellingPrice = enteredPrice;
@@ -39,6 +41,8 @@
         <div class="grid gap-4">
             <Input
                 type="number"
+                min={0}
+                max={1000000}
                 bind:value={enteredPrice}
                 onkeyup={(e) => {
                     if (e.key === "Enter") updatePrice();
