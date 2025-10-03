@@ -27,7 +27,10 @@
                         factory.level >= FactoryConstants.upgrades.maxLevel}
                     onclick={() => {
                         upgradeFactory(index);
-                    }}>Upgrade (${getFactoryUpgradeCost(factory)})</Button
+                    }}
+                    >{factory.level >= FactoryConstants.upgrades.maxLevel
+                        ? "Reached upgrade limit"
+                        : `Upgrade ($${getFactoryUpgradeCost(factory)})`}</Button
                 >
             </div>
             <div class="grid grid-cols-2 gap-2">
