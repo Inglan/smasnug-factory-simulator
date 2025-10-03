@@ -60,3 +60,10 @@ export function upgradeFactory(index: number) {
     money: currentState.money - upgradeCost,
   });
 }
+
+export function getProductionPerDay(factory: Factory) {
+  return (
+    FactoryConstants.upgrades.efficiencyIncrease ** factory.level *
+    Products[factory.type as ProductTypes].productionPerFactoryPerDay
+  );
+}

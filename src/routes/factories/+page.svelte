@@ -2,7 +2,12 @@
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
     import { FactoryConstants, Products } from "$lib/constants";
-    import { getFactoryUpgradeCost, upgradeFactory } from "$lib/game/factories";
+    import {
+        getFactoryUpgradeCost,
+        getProductionPerDay,
+        upgradeFactory,
+    } from "$lib/game/factories";
+    import { getProduct } from "$lib/game/utils";
     import { state } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import { Smartphone } from "@lucide/svelte";
@@ -52,6 +57,9 @@
                 </div>
                 <div>
                     {factory.totalProduced} produced
+                </div>
+                <div>
+                    {getProductionPerDay(factory)} produced per day
                 </div>
             </div>
         </div>
