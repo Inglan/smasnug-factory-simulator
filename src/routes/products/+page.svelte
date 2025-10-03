@@ -52,7 +52,7 @@
                     (${getFactoryCost(productId as ProductTypes)})
                 </Button>
                 {#if !!$gameState.factories.filter((factory) => factory.type === productId).length}
-                    <SetPriceButton {product} />
+                    <SetPriceButton {product} {productId} />
                 {/if}
             </div>
             {#if !!$gameState.factories.filter((factory) => factory.type === productId).length}

@@ -2,46 +2,50 @@
     import Button, {
         buttonVariants,
     } from "$lib/components/ui/button/button.svelte";
-    import type { StateProduct } from "$lib/types";
+    import type { ProductTypes, StateProduct } from "$lib/types";
     import * as Dialog from "$lib/components/ui/dialog/index.js";
     import Input from "$lib/components/ui/input/input.svelte";
     import { gameState } from "$lib/state.svelte";
 
-    let { product }: { product: StateProduct } = $props();
+    let { product, productId }: { product: StateProduct; productId: string } =
+        $props();
 
-    let enteredPrice = $state(0);
+    let enteredPrice = $state() as number;
+    let priceDialogOpen = $state(false);
+
+    function updatePrice() {
+        if (!(productId in $gameState.products)) return;
+        if (!enteredPrice) return;
+        if (!Number.isFinite(enteredPrice)) return;
+        ($gameState.products as Record<string, StateProduct>)[
+            productId
+        ].sellingPrice = enteredPrice;
+
+        priceDialogOpen = false;
+    }
 </script>
 
-<Dialog.Root open={true}>
+<Dialog.Root bind:open={priceDialogOpen}>
     <Dialog.Trigger class={buttonVariants()}>Set price</Dialog.Trigger>
     <Dialog.Content>
-        <form
-            onsubmit={(e) => {
-                e.preventDefault();
-                if (enteredPrice !== product.sellingPrice) {
-                    // $state.products[product.id].sellingPrice = enteredPrice;
-                    alert(`Price updated to ${enteredPrice}`);
-                }
-            }}
-            class="gap-4 grid"
-        >
-            <Dialog.Header>
-                <Dialog.Title>Set price</Dialog.Title>
-            </Dialog.Header>
-            <div class="grid gap-4">
-                <Input
-                    id="price"
-                    type="number"
-                    bind:value={enteredPrice}
-                    class="col-span-3"
-                />
-            </div>
-            <Dialog.Footer>
-                <Dialog.Close class={buttonVariants({ variant: "outline" })}
-                    >Cancel</Dialog.Close
-                >
-                <Button type="submit">Update</Button>
-            </Dialog.Footer>
-        </form>
+        <Dialog.Header>
+            <Dialog.Title>Set price</Dialog.Title>
+        </Dialog.Header>
+        <div class="grid gap-4">
+            <Input
+                id="price"
+                type="number"
+                bind:value={enteredPrice}
+                onkeyup={(e) => {
+                    if (e.key === "Enter") updatePrice();
+                }}
+            />
+        </div>
+        <Dialog.Footer>
+            <Dialog.Close class={buttonVariants({ variant: "outline" })}
+                >Cancel</Dialog.Close
+            >
+            <Button type="submit" onclick={updatePrice}>Update</Button>
+        </Dialog.Footer>
     </Dialog.Content>
 </Dialog.Root>
