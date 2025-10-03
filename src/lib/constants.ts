@@ -54,7 +54,7 @@ export const Products = {
 
 export const FactoryConstants = {
   baseCostMultiplier: 20, // Used to calculate cost, based off cost of product
-  baseCostMultiplierPerFactory: 0.1,
+  baseCostMultiplierPerFactory: 2,
   baseEfficiency: 1.0,
   upgrades: {
     costIncrease: 1.1,
