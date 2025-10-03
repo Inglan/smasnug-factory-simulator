@@ -33,3 +33,9 @@ export type Factory = {
     value: number;
   };
 };
+
+export type Campaign = {
+  budget: number;
+  totalRunningDays: number;
+  daysElapsed: number;
+};
