@@ -2,6 +2,7 @@
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
     import { Products } from "$lib/constants";
+    import { buyFactory } from "$lib/game/factories";
     import { state } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import clsx from "clsx";
@@ -38,35 +39,14 @@
                 {#if !!$state.factories.filter((factory) => factory.type === productId).length}
                     <Button
                         onclick={() => {
-                            let factories = $state.factories;
-                            factories.push({
-                                type: productId as ProductTypes,
-                                efficiency: 1,
-                                purchaseData: {
-                                    day: $state.currentDay,
-                                    cost: 1,
-                                },
-                                totalProduced: 0,
-                            });
-                            $state.factories = factories;
+                            buyFactory(productId as ProductTypes);
                         }}>Buy factory</Button
                     >
                     <Button>Set price</Button>
                 {:else}
                     <Button
                         onclick={() => {
-                            let factories = $state.factories;
-                            factories.push({
-                                type: productId as ProductTypes,
-                                efficiency: 1,
-                                purchaseData: {
-                                    day: $state.currentDay,
-                                    cost: 1,
-                                    value: 1,
-                                },
-                                totalProduced: 0,
-                            });
-                            $state.factories = factories;
+                            buyFactory(productId as ProductTypes);
                         }}
                     >
                         Start Production
