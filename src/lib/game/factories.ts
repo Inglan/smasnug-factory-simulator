@@ -13,7 +13,7 @@ export function getFactoryCost(type: ProductTypes) {
     FactoryConstants.baseCostMultiplier +
     FactoryConstants.baseCostMultiplerPerFactory * factoryCount;
 
-  return productCost * factoryCostMultiplier;
+  return Math.round(productCost * factoryCostMultiplier);
 }
 
 export function buyFactory(type: ProductTypes) {
