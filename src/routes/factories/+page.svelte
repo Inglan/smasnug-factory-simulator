@@ -38,7 +38,6 @@
                         FactoryConstants.upgrades.efficiencyIncrease **
                         factory.level
                     ).toPrecision(3)}x efficiency
-                    {factory.level}
                 </div>
                 <div>
                     {factory.totalProduced} produced
