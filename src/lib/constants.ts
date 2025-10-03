@@ -59,6 +59,7 @@ export const FactoryConstants = {
   upgrades: {
     costIncrease: 1.1,
     efficiencyIncrease: 1.1,
+    maxLevel: 10,
   },
 };
 

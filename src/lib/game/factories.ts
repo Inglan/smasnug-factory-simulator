@@ -49,6 +49,8 @@ export function upgradeFactory(index: number) {
   const currentState = get(state);
   const upgradeCost = getFactoryUpgradeCost(currentState.factories[index]);
   if (currentState.money < upgradeCost) return;
+  if (currentState.factories[index].level >= FactoryConstants.upgrades.maxLevel)
+    return;
   let factories = currentState.factories;
   factories[index].level++;
   factories[index].purchaseData.value += upgradeCost;
