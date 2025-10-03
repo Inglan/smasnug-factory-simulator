@@ -36,26 +36,20 @@
                     </h3>
                 </div>
                 <div class="grow"></div>
+                <Button
+                    onclick={() => {
+                        buyFactory(productId as ProductTypes);
+                    }}
+                >
+                    {#if !!$state.factories.filter((factory) => factory.type === productId).length}
+                        Buy factory
+                    {:else}
+                        Start production
+                    {/if}
+                    (${getFactoryCost(productId as ProductTypes)})
+                </Button>
                 {#if !!$state.factories.filter((factory) => factory.type === productId).length}
-                    <Button
-                        onclick={() => {
-                            buyFactory(productId as ProductTypes);
-                        }}
-                        >Buy factory (${getFactoryCost(
-                            productId as ProductTypes,
-                        )})
-                    </Button>
                     <Button>Set price</Button>
-                {:else}
-                    <Button
-                        onclick={() => {
-                            buyFactory(productId as ProductTypes);
-                        }}
-                    >
-                        Start Production (${getFactoryCost(
-                            productId as ProductTypes,
-                        )})
-                    </Button>
                 {/if}
             </div>
             {#if !!$state.factories.filter((factory) => factory.type === productId).length}
