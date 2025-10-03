@@ -2,7 +2,7 @@
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
     import { FactoryConstants, Products } from "$lib/constants";
-    import { getFactoryUpgradeCost } from "$lib/game/factories";
+    import { getFactoryUpgradeCost, upgradeFactory } from "$lib/game/factories";
     import { state } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import { Smartphone } from "@lucide/svelte";
@@ -18,18 +18,23 @@
                         Factory {index + 1}
                     </h2>
                     <h3 class="text-md">
-                        Purchased on day {factory.purchaseData.day} for ${factory
-                            .purchaseData.cost}
+                        Purchased on day {factory.purchaseData.day}
                     </h3>
                 </div>
                 <div class="grow"></div>
                 <Button
                     onclick={() => {
-                        $state.factories[index].level++;
+                        upgradeFactory(index);
                     }}>Upgrade (${getFactoryUpgradeCost(factory)})</Button
                 >
             </div>
             <div class="grid grid-cols-2 gap-2">
+                <div>
+                    Cost: ${factory.purchaseData.cost}
+                </div>
+                <div>
+                    Value: ${factory.purchaseData.value}
+                </div>
                 <div class="inline-flex flex-row gap-1 items-center">
                     <Smartphone class="size-5" />
                     {Products[factory.type].name}
