@@ -22,3 +22,14 @@ export type ConstantProduct = {
   productionPerFactoryPerDay: number;
   costToStart: number;
 };
+
+export type Factory = {
+  level: number;
+  type: ProductTypes;
+  totalProduced: number;
+  purchaseData: {
+    cost: number;
+    day: number;
+    value: number;
+  };
+};
