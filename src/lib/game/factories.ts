@@ -62,8 +62,8 @@ export function upgradeFactory(index: number) {
 }
 
 export function getProductionPerDay(factory: Factory) {
-  return (
+  const calculatedProducedPerDay =
     FactoryConstants.upgrades.efficiencyIncrease ** factory.level *
-    Products[factory.type as ProductTypes].productionPerFactoryPerDay
-  );
+    Products[factory.type as ProductTypes].productionPerFactoryPerDay;
+  return Math.round(calculatedProducedPerDay);
 }
