@@ -57,8 +57,8 @@ export const FactoryConstants = {
   baseCostMultiplierPerFactory: 0.1,
   baseEfficiency: 1.0,
   upgrades: {
-    costIncrease: 0.1,
-    efficiencyIncrease: 0.1,
+    costIncrease: 1.1,
+    efficiencyIncrease: 1.1,
   },
 };
 

@@ -35,9 +35,8 @@
                 </div>
                 <div>
                     {(
-                        factory.level **
-                            FactoryConstants.upgrades.efficiencyIncrease +
-                        1
+                        FactoryConstants.upgrades.efficiencyIncrease **
+                        factory.level
                     ).toPrecision(3)}x efficiency
                     {factory.level}
                 </div>
