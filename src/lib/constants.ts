@@ -55,6 +55,7 @@ export const FACTORY_CONSTANTS = {
     efficiencyIncrease: 1.1,
     maxLevel: 10,
   },
+  sellPriceMultiplier: 0.25,
 };
 
 export const DEMAND_CONSTANTS = {
