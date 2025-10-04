@@ -3,7 +3,7 @@ import type { Campaign, Factory, ProductTypes, StateProduct } from "./types";
 import { Products as Product } from "./constants";
 
 export const gameState = persisted("smasnug-factory-simulator-state", {
-  money: 1000,
+  money: 10000,
   demandMultiplier: 1,
   currentDay: 0,
   lastOnline: 0,
