@@ -37,12 +37,15 @@
                 <Button
                     onclick={() => {
                         $gameState.factories.splice(index, 1);
-                        $gameState.money +=
+                        $gameState.money += Math.round(
                             factory.purchaseData.value *
-                            FACTORY_CONSTANTS.sellPriceMultiplier;
+                                FACTORY_CONSTANTS.sellPriceMultiplier,
+                        );
                     }}
-                    >Sell ({factory.purchaseData.value *
-                        FACTORY_CONSTANTS.sellPriceMultiplier})</Button
+                    >Sell ({Math.round(
+                        factory.purchaseData.value *
+                            FACTORY_CONSTANTS.sellPriceMultiplier,
+                    )})</Button
                 >
                 <Button
                     onclick={() => {
