@@ -28,6 +28,7 @@ export type Factory = {
   level: number;
   type: ProductTypes;
   totalProduced: number;
+  paused: boolean;
   purchaseData: {
     cost: number;
     day: number;

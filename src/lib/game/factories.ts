@@ -31,6 +31,7 @@ export function buyFactory(type: ProductTypes) {
       value: factoryCost,
     },
     totalProduced: 0,
+    paused: false,
   });
   gameState.set({
     ...currentState,
