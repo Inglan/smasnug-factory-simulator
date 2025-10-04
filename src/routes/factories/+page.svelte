@@ -43,18 +43,20 @@
                             factory.paused = !factory.paused;
                         }}>Resume production</Button
                     >
+                {:else}
+                    <Button
+                        disabled={getFactoryUpgradeCost(factory) >
+                            $gameState.money ||
+                            factory.level >=
+                                FACTORY_CONSTANTS.upgrades.maxLevel}
+                        onclick={() => {
+                            upgradeFactory(index);
+                        }}
+                        >{factory.level >= FACTORY_CONSTANTS.upgrades.maxLevel
+                            ? "Reached upgrade limit"
+                            : `Upgrade ($${getFactoryUpgradeCost(factory)})`}</Button
+                    >
                 {/if}
-                <Button
-                    disabled={getFactoryUpgradeCost(factory) >
-                        $gameState.money ||
-                        factory.level >= FACTORY_CONSTANTS.upgrades.maxLevel}
-                    onclick={() => {
-                        upgradeFactory(index);
-                    }}
-                    >{factory.level >= FACTORY_CONSTANTS.upgrades.maxLevel
-                        ? "Reached upgrade limit"
-                        : `Upgrade ($${getFactoryUpgradeCost(factory)})`}</Button
-                >
                 <DropdownMenu.Root>
                     <DropdownMenu.Trigger
                         class={buttonVariants({ size: "icon" })}
