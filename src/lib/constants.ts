@@ -69,3 +69,4 @@ export const ADVERTISING_CONSTANTS = {
 };
 
 export const TICK = 100;
+export const DAY_LENGTH = 300;
