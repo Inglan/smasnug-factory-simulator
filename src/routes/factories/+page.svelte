@@ -26,7 +26,8 @@
             <div class="w-full flex flex-row gap-2">
                 <div class="flex flex-col">
                     <h2 class="text-2xl">
-                        Factory {index + 1}
+                        {PRODUCTS[factory.type].name}
+                        factory {index + 1}
                     </h2>
                     <h3 class="text-md">
                         Purchased on day {factory.purchaseData.day}
@@ -56,16 +57,6 @@
                 </div>
                 <div>
                     Value: ${factory.purchaseData.value}
-                </div>
-                <div class="inline-flex flex-row gap-1 items-center">
-                    <Smartphone class="size-5" />
-                    {PRODUCTS[factory.type].name}
-                </div>
-                <div>
-                    {(
-                        FACTORY_CONSTANTS.upgrades.efficiencyIncrease **
-                        factory.level
-                    ).toPrecision(3)}x efficiency
                 </div>
                 <div>
                     {factory.totalProduced} produced
