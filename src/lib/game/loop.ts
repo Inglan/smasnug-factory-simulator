@@ -4,9 +4,10 @@ import { get } from "svelte/store";
 export function init() {
   // Day
   const dayInterval = setInterval(() => {
+    const currentGameState = get(gameState);
     gameState.set({
-      ...get(gameState),
-      currentDay: get(gameState).currentDay + 1,
+      ...currentGameState,
+      currentDay: currentGameState.currentDay + 1,
     });
   }, 1000 * 30);
 
