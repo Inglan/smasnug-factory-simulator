@@ -22,7 +22,7 @@
                 !$gameState.factories.filter(
                     (factory) => factory.type === productId,
                 ).length &&
-                    "border-dashed opacity-75 hover:opacity-100 duration-300",
+                    "border-dashed opacity-75 hover:opacity-100 duration-300 bg-transparent",
             )}
         >
             <div class="w-full flex flex-row gap-2">
