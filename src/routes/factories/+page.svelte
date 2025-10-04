@@ -28,6 +28,11 @@
                 </div>
                 <div class="grow"></div>
                 <Button
+                    onclick={() => {
+                        factory.paused = !factory.paused;
+                    }}>{factory.paused ? "Resume" : "Pause"} production</Button
+                >
+                <Button
                     disabled={getFactoryUpgradeCost(factory) >
                         $gameState.money ||
                         factory.level >= FACTORY_CONSTANTS.upgrades.maxLevel}
