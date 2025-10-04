@@ -58,11 +58,6 @@ export const FACTORY_CONSTANTS = {
   sellPriceMultiplier: 0.25,
 };
 
-export const DEMAND_CONSTANTS = {
-  maxDemandMultiplier: 5, // Cannot exceed 5x
-  baseDemandMultiplier: 1,
-};
-
 export const ADVERTISING_CONSTANTS = {
   maxEffectiveBudget: 1000000, // max budget that affects the formula
   formulaDivisor: 100000, // what ad budget is divided by

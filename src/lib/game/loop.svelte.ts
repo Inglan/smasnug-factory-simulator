@@ -51,8 +51,7 @@ export function init() {
             (Math.round(
               DAY_LENGTH /
                 PRODUCTS[productType as keyof typeof PRODUCTS].baseDemandPerDay,
-            ) *
-              updatedGameState.demandMultiplier +
+            ) +
               (Math.round(Math.random() * 4) - 2)) ===
             0 &&
           Math.random() < SALE_RATE &&

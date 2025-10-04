@@ -4,7 +4,6 @@ import { PRODUCTS as Product } from "./constants";
 
 export const gameState = persisted("smasnug-factory-simulator-state", {
   money: 10000,
-  demandMultiplier: 1,
   currentDay: 0,
   lastOnline: 0,
   analytics: {
@@ -72,7 +71,6 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
   campaigns: [],
 } as {
   money: number;
-  demandMultiplier: number;
   currentDay: number;
   lastOnline: number;
   analytics: {
