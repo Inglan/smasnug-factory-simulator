@@ -2,7 +2,7 @@ import { gameState, time } from "$lib/state.svelte";
 import { get } from "svelte/store";
 import { getProductionPerDay } from "./factories";
 import { updated } from "$app/state";
-import { DAY_LENGTH, PRODUCTS, TICK } from "$lib/constants";
+import { DAY_LENGTH, FAILURE_RATE, PRODUCTS, TICK } from "$lib/constants";
 
 function day() {
   let updatedGameState = get(gameState);
@@ -24,7 +24,7 @@ export function init() {
           (DAY_LENGTH / getProductionPerDay(factory) +
             (Math.round(Math.random() * 4) - 2)) ===
           0 &&
-        Math.random() < 0.9 &&
+        Math.random() < FAILURE_RATE &&
         updatedGameState.money >= PRODUCTS[factory.type].cost
       ) {
         updatedGameState.products[factory.type].stock += 1;
