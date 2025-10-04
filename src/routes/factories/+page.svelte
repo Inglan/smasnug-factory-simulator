@@ -14,7 +14,7 @@
     import clsx from "clsx";
 </script>
 
-<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+<div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
     {#each $gameState.factories as factory, index}
         <div
             class={clsx(

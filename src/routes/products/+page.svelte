@@ -13,7 +13,7 @@
     }
 </script>
 
-<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+<div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
     {#each Object.entries($gameState.products) as [productId, product]}
         {@const productInfo = getProduct(productId as keyof typeof PRODUCTS)}
         <div
