@@ -42,7 +42,7 @@
                                 FACTORY_CONSTANTS.sellPriceMultiplier,
                         );
                     }}
-                    >Sell ({Math.round(
+                    >Sell (${Math.round(
                         factory.purchaseData.value *
                             FACTORY_CONSTANTS.sellPriceMultiplier,
                     )})</Button
