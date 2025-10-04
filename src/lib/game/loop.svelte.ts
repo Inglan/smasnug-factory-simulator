@@ -9,10 +9,11 @@ export function init() {
   const dayInterval = setInterval(() => {
     let updatedGameState = get(gameState);
 
-    updatedGameState.factories.forEach((factory) => {
+    updatedGameState.factories.forEach((factory, factoryIndex) => {
       for (let i = 0; i < getProductionPerDay(factory); i++) {
         if (updatedGameState.money >= Products[factory.type].cost) {
           updatedGameState.products[factory.type].stock += 1;
+          updatedGameState.factories[factoryIndex].totalProduced += 1;
           updatedGameState.money -= Products[factory.type].cost;
         }
       }
