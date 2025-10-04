@@ -16,7 +16,13 @@
 
 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
     {#each $gameState.factories as factory, index}
-        <div class={clsx("flex flex-col bg-card border rounded-md p-4 gap-2")}>
+        <div
+            class={clsx(
+                "flex flex-col bg-card border rounded-md p-4 gap-2",
+                factory.paused &&
+                    "border-dashed opacity-75 hover:opacity-100 duration-300 bg-transparent",
+            )}
+        >
             <div class="w-full flex flex-row gap-2">
                 <div class="flex flex-col">
                     <h2 class="text-2xl">
