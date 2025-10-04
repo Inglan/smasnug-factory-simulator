@@ -59,10 +59,14 @@
                 <Separator />
                 <div class="grid grid-cols-2">
                     <div>Selling for ${product.sellingPrice}</div>
+                    <div>
+                        ${getProduct(productId as ProductTypes).cost} to produce
+                    </div>
                     <div>{product.stock} in stock</div>
                     <div>{product.totalSold} sold</div>
                     <div>{product.totalProduced} produced</div>
                     <div>${product.totalRevenue} revenue</div>
+                    <div>${product.totalCost} cost</div>
                     <div>${product.totalProfit} profit</div>
                 </div>
             {/if}

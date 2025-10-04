@@ -10,6 +10,7 @@ export type StateProduct = {
   sellingPrice: number;
   stock: number;
   totalRevenue: number;
+  totalCost: number;
   totalProfit: number;
   totalSold: number;
   totalProduced: number;
