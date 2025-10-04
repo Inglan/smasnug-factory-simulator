@@ -1,15 +1,17 @@
 <script lang="ts">
     import { PRODUCTS } from "$lib/constants";
     import { gameState } from "$lib/state.svelte";
-    import type { ConstantProduct } from "$lib/types";
+    import type { ConstantProduct, StateProduct } from "$lib/types";
 
     const stats = [
         { name: "Money", value: `$${$gameState.money}` },
         { name: "Factories", value: $gameState.factories.length },
         {
             name: "Products in production",
-            value: Object.values($gameState.products).filter(
-                (p: any) => p.startedProduction,
+            value: Object.keys($gameState.products).filter((product) =>
+                $gameState.factories.find(
+                    (factory) => factory.type === product,
+                ),
             ).length,
         },
         {
