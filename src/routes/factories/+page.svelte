@@ -1,6 +1,9 @@
 <script lang="ts">
-    import Button from "$lib/components/ui/button/button.svelte";
+    import Button, {
+        buttonVariants,
+    } from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
+    import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
     import { FACTORY_CONSTANTS, PRODUCTS } from "$lib/constants";
     import {
         getFactoryUpgradeCost,
@@ -10,7 +13,7 @@
     import { getProduct } from "$lib/game/utils";
     import { gameState } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
-    import { Smartphone } from "@lucide/svelte";
+    import { EllipsisVertical, Smartphone } from "@lucide/svelte";
     import clsx from "clsx";
 </script>
 
@@ -34,24 +37,13 @@
                     </h3>
                 </div>
                 <div class="grow"></div>
-                <Button
-                    onclick={() => {
-                        $gameState.factories.splice(index, 1);
-                        $gameState.money += Math.round(
-                            factory.purchaseData.value *
-                                FACTORY_CONSTANTS.sellPriceMultiplier,
-                        );
-                    }}
-                    >Sell (${Math.round(
-                        factory.purchaseData.value *
-                            FACTORY_CONSTANTS.sellPriceMultiplier,
-                    )})</Button
-                >
-                <Button
-                    onclick={() => {
-                        factory.paused = !factory.paused;
-                    }}>{factory.paused ? "Resume" : "Pause"} production</Button
-                >
+                {#if factory.paused}
+                    <Button
+                        onclick={() => {
+                            factory.paused = !factory.paused;
+                        }}>Resume production</Button
+                    >
+                {/if}
                 <Button
                     disabled={getFactoryUpgradeCost(factory) >
                         $gameState.money ||
@@ -63,6 +55,38 @@
                         ? "Reached upgrade limit"
                         : `Upgrade ($${getFactoryUpgradeCost(factory)})`}</Button
                 >
+                <DropdownMenu.Root>
+                    <DropdownMenu.Trigger
+                        class={buttonVariants({ size: "icon" })}
+                    >
+                        <EllipsisVertical />
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Content>
+                        <DropdownMenu.Group>
+                            <DropdownMenu.Label>Factory</DropdownMenu.Label>
+                            <DropdownMenu.Separator />
+                            <DropdownMenu.Item
+                                onSelect={() => {
+                                    factory.paused = !factory.paused;
+                                }}
+                                >{factory.paused ? "Resume" : "Pause"} production</DropdownMenu.Item
+                            >
+                            <DropdownMenu.Item
+                                onSelect={() => {
+                                    $gameState.factories.splice(index, 1);
+                                    $gameState.money += Math.round(
+                                        factory.purchaseData.value *
+                                            FACTORY_CONSTANTS.sellPriceMultiplier,
+                                    );
+                                }}
+                                >Sell for ${Math.round(
+                                    factory.purchaseData.value *
+                                        FACTORY_CONSTANTS.sellPriceMultiplier,
+                                )})</DropdownMenu.Item
+                            >
+                        </DropdownMenu.Group>
+                    </DropdownMenu.Content>
+                </DropdownMenu.Root>
             </div>
             <div class="grid grid-cols-2 gap-2">
                 <div>
