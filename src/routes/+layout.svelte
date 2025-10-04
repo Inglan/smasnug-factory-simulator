@@ -5,7 +5,7 @@
     import { gameState } from "$lib/state.svelte";
     import { Button } from "$lib/components/ui/button";
     import { page } from "$app/state";
-    import { init } from "$lib/game/loop";
+    import { init } from "$lib/game/loop.svelte";
     import {
         House,
         Smartphone,
