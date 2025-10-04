@@ -2,7 +2,7 @@ import { gameState, time } from "$lib/state.svelte";
 import { get } from "svelte/store";
 import { getProductionPerDay } from "./factories";
 import { updated } from "$app/state";
-import { Products, TICK } from "$lib/constants";
+import { PRODUCTS, TICK } from "$lib/constants";
 
 export function init() {
   // Day
@@ -11,10 +11,10 @@ export function init() {
 
     updatedGameState.factories.forEach((factory, factoryIndex) => {
       for (let i = 0; i < getProductionPerDay(factory); i++) {
-        if (updatedGameState.money >= Products[factory.type].cost) {
+        if (updatedGameState.money >= PRODUCTS[factory.type].cost) {
           updatedGameState.products[factory.type].stock += 1;
           updatedGameState.factories[factoryIndex].totalProduced += 1;
-          updatedGameState.money -= Products[factory.type].cost;
+          updatedGameState.money -= PRODUCTS[factory.type].cost;
         }
       }
     });

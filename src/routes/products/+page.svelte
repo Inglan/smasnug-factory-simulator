@@ -1,21 +1,21 @@
 <script lang="ts">
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
-    import { FactoryConstants, Products } from "$lib/constants";
+    import { FACTORY_CONSTANTS, PRODUCTS } from "$lib/constants";
     import { buyFactory, getFactoryCost } from "$lib/game/factories";
     import { gameState } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
     import clsx from "clsx";
     import SetPriceButton from "./set-price-button.svelte";
 
-    function getProduct(productId: keyof typeof Products) {
-        return Products[productId];
+    function getProduct(productId: keyof typeof PRODUCTS) {
+        return PRODUCTS[productId];
     }
 </script>
 
 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
     {#each Object.entries($gameState.products) as [productId, product]}
-        {@const productInfo = getProduct(productId as keyof typeof Products)}
+        {@const productInfo = getProduct(productId as keyof typeof PRODUCTS)}
         <div
             class={clsx(
                 "flex flex-col bg-card border rounded-md p-4 gap-2",

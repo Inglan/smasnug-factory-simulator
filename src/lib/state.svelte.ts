@@ -1,6 +1,6 @@
 import { persisted } from "svelte-persisted-store";
 import type { Campaign, Factory, ProductTypes, StateProduct } from "./types";
-import { Products as Product } from "./constants";
+import { PRODUCTS as Product } from "./constants";
 
 export const gameState = persisted("smasnug-factory-simulator-state", {
   money: 10000,

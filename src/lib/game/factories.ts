@@ -1,23 +1,24 @@
-import { FactoryConstants, Products } from "$lib/constants";
+import { FACTORY_CONSTANTS, PRODUCTS } from "$lib/constants";
 import { gameState } from "$lib/state.svelte";
 import type { Factory, ProductTypes } from "$lib/types";
 import { get } from "svelte/store";
 
 export function getFactoryCost(type: ProductTypes) {
   const currentState = get(gameState);
-  const productCost = Products[type].cost;
+  const productCost = PRODUCTS[type].cost;
   const factoryCount = currentState.factories.filter(
     (factory) => factory.type === type,
   ).length;
   const factoryCostMultiplier =
-    FactoryConstants.baseCostMultiplier *
-    FactoryConstants.baseCostMultiplierPerFactory ** factoryCount;
+    FACTORY_CONSTANTS.baseCostMultiplier *
+    FACTORY_CONSTANTS.baseCostMultiplierPerFactory ** factoryCount;
 
   return Math.round(productCost * factoryCostMultiplier);
 }
 
 export function buyFactory(type: ProductTypes) {
-  const factoryCost = Products[type].cost * FactoryConstants.baseCostMultiplier;
+  const factoryCost =
+    PRODUCTS[type].cost * FACTORY_CONSTANTS.baseCostMultiplier;
   const currentState = get(gameState);
   if (currentState.money < factoryCost) return;
   let factories = currentState.factories;
@@ -40,7 +41,7 @@ export function buyFactory(type: ProductTypes) {
 
 export function getFactoryUpgradeCost(factory: Factory) {
   const calculatedPrice =
-    FactoryConstants.upgrades.costIncrease ** (factory.level + 1) *
+    FACTORY_CONSTANTS.upgrades.costIncrease ** (factory.level + 1) *
     factory.purchaseData.cost;
   return Math.round(calculatedPrice);
 }
@@ -49,7 +50,9 @@ export function upgradeFactory(index: number) {
   const currentState = get(gameState);
   const upgradeCost = getFactoryUpgradeCost(currentState.factories[index]);
   if (currentState.money < upgradeCost) return;
-  if (currentState.factories[index].level >= FactoryConstants.upgrades.maxLevel)
+  if (
+    currentState.factories[index].level >= FACTORY_CONSTANTS.upgrades.maxLevel
+  )
     return;
   let factories = currentState.factories;
   factories[index].level++;
@@ -63,7 +66,7 @@ export function upgradeFactory(index: number) {
 
 export function getProductionPerDay(factory: Factory) {
   const calculatedProducedPerDay =
-    FactoryConstants.upgrades.efficiencyIncrease ** factory.level *
-    Products[factory.type as ProductTypes].productionPerFactoryPerDay;
+    FACTORY_CONSTANTS.upgrades.efficiencyIncrease ** factory.level *
+    PRODUCTS[factory.type as ProductTypes].productionPerFactoryPerDay;
   return Math.round(calculatedProducedPerDay);
 }

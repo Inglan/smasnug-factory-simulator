@@ -1,6 +1,6 @@
 import type { ConstantProduct } from "./types";
 
-export const Products = {
+export const PRODUCTS = {
   phone: {
     name: "Galoxy",
     cost: 300,
@@ -46,7 +46,7 @@ export const Products = {
   laptop: ConstantProduct;
 };
 
-export const FactoryConstants = {
+export const FACTORY_CONSTANTS = {
   baseCostMultiplier: 20, // Used to calculate cost, based off cost of product
   baseCostMultiplierPerFactory: 2,
   baseEfficiency: 1.0,
@@ -57,12 +57,12 @@ export const FactoryConstants = {
   },
 };
 
-export const DemandConstants = {
+export const DEMAND_CONSTANTS = {
   maxDemandMultiplier: 5, // Cannot exceed 5x
   baseDemandMultiplier: 1,
 };
 
-export const AdvertisingConstants = {
+export const ADVERTISING_CONSTANTS = {
   maxEffectiveBudget: 1000000, // max budget that affects the formula
   formulaDivisor: 100000, // what ad budget is divided by
   // formula: sqrt(min(Ad budget, maxBudgetForFormula) / formulaDivisor)

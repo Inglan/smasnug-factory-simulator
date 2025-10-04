@@ -1,7 +1,7 @@
 <script lang="ts">
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
-    import { FactoryConstants, Products } from "$lib/constants";
+    import { FACTORY_CONSTANTS, PRODUCTS } from "$lib/constants";
     import {
         getFactoryUpgradeCost,
         getProductionPerDay,
@@ -30,11 +30,11 @@
                 <Button
                     disabled={getFactoryUpgradeCost(factory) >
                         $gameState.money ||
-                        factory.level >= FactoryConstants.upgrades.maxLevel}
+                        factory.level >= FACTORY_CONSTANTS.upgrades.maxLevel}
                     onclick={() => {
                         upgradeFactory(index);
                     }}
-                    >{factory.level >= FactoryConstants.upgrades.maxLevel
+                    >{factory.level >= FACTORY_CONSTANTS.upgrades.maxLevel
                         ? "Reached upgrade limit"
                         : `Upgrade ($${getFactoryUpgradeCost(factory)})`}</Button
                 >
@@ -48,11 +48,11 @@
                 </div>
                 <div class="inline-flex flex-row gap-1 items-center">
                     <Smartphone class="size-5" />
-                    {Products[factory.type].name}
+                    {PRODUCTS[factory.type].name}
                 </div>
                 <div>
                     {(
-                        FactoryConstants.upgrades.efficiencyIncrease **
+                        FACTORY_CONSTANTS.upgrades.efficiencyIncrease **
                         factory.level
                     ).toPrecision(3)}x efficiency
                 </div>
