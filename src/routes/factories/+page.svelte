@@ -36,6 +36,12 @@
                 <div class="grow"></div>
                 <Button
                     onclick={() => {
+                        $gameState.factories.splice(index, 1);
+                        $gameState.money += factory.purchaseData.value / 4;
+                    }}>Sell ({factory.purchaseData.value / 4})</Button
+                >
+                <Button
+                    onclick={() => {
                         factory.paused = !factory.paused;
                     }}>{factory.paused ? "Resume" : "Pause"} production</Button
                 >
