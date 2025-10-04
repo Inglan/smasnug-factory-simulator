@@ -70,4 +70,4 @@ export const ADVERTISING_CONSTANTS = {
 
 export const TICK = 100;
 export const DAY_LENGTH = 300;
-export const FAILURE_RATE = 0.9;
+export const SUCCESS_RATE = 0.9;
