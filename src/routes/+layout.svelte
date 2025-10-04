@@ -54,6 +54,7 @@
 </script>
 
 <svelte:head>
+    <title>Smasnug Factory Simulator</title>
     <link rel="icon" href={favicon} />
 </svelte:head>
 
