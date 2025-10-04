@@ -27,7 +27,7 @@
                 <div class="flex flex-col">
                     <h2 class="text-2xl">
                         {PRODUCTS[factory.type].name}
-                        factory {index + 1}
+                        factory ({index + 1})
                     </h2>
                     <h3 class="text-md">
                         Purchased on day {factory.purchaseData.day}
