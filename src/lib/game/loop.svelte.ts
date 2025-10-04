@@ -28,8 +28,10 @@ export function init() {
     updatedGameState.factories.forEach((factory, factoryIndex) => {
       if (
         time.tick %
-          (DAY_LENGTH / getProductionPerDay(factory) +
-            (Math.round(Math.random() * 4) - 2)) ===
+          Math.round(
+            DAY_LENGTH / getProductionPerDay(factory) +
+              (Math.round(Math.random() * 4) - 2),
+          ) ===
           0 &&
         Math.random() < SUCCESS_RATE &&
         updatedGameState.money >= PRODUCTS[factory.type].cost &&
@@ -46,8 +48,10 @@ export function init() {
       ([productType, product]) => {
         if (
           time.tick %
-            ((DAY_LENGTH /
-              PRODUCTS[productType as keyof typeof PRODUCTS].baseDemandPerDay) *
+            (Math.round(
+              DAY_LENGTH /
+                PRODUCTS[productType as keyof typeof PRODUCTS].baseDemandPerDay,
+            ) *
               updatedGameState.demandMultiplier +
               (Math.round(Math.random() * 4) - 2)) ===
             0 &&
