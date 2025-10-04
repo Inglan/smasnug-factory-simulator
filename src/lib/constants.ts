@@ -67,3 +67,5 @@ export const AdvertisingConstants = {
   formulaDivisor: 100000, // what ad budget is divided by
   // formula: sqrt(min(Ad budget, maxBudgetForFormula) / formulaDivisor)
 };
+
+export const TICK = 100;
