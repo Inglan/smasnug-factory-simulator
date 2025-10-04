@@ -91,3 +91,5 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
   };
   campaigns: Campaign[];
 });
+
+export let time = $state({ tick: 0 });

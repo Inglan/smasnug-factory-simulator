@@ -1,4 +1,4 @@
-import { gameState } from "$lib/state.svelte";
+import { gameState, time } from "$lib/state.svelte";
 import { get } from "svelte/store";
 import { getProductionPerDay } from "./factories";
 import { updated } from "$app/state";
@@ -24,7 +24,12 @@ export function init() {
     gameState.set(updatedGameState);
   }, 1000 * 30);
 
+  const tickInterval = setInterval(() => {
+    time.tick += 1;
+  }, 1000);
+
   return () => {
     clearInterval(dayInterval);
+    clearInterval(tickInterval);
   };
 }
