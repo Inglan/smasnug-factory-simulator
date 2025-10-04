@@ -2,7 +2,14 @@ import { gameState, time } from "$lib/state.svelte";
 import { get } from "svelte/store";
 import { getProductionPerDay } from "./factories";
 import { updated } from "$app/state";
-import { DAY_LENGTH, FAILURE_RATE, PRODUCTS, TICK } from "$lib/constants";
+import {
+  DAY_LENGTH,
+  SUCCESS_RATE,
+  PRODUCTS,
+  TICK,
+  SALE_RATE,
+} from "$lib/constants";
+import type { ProductTypes } from "$lib/types";
 
 function day() {
   let updatedGameState = get(gameState);
@@ -24,7 +31,7 @@ export function init() {
           (DAY_LENGTH / getProductionPerDay(factory) +
             (Math.round(Math.random() * 4) - 2)) ===
           0 &&
-        Math.random() < FAILURE_RATE &&
+        Math.random() < SUCCESS_RATE &&
         updatedGameState.money >= PRODUCTS[factory.type].cost &&
         !factory.paused
       ) {
@@ -34,6 +41,26 @@ export function init() {
         updatedGameState.money -= PRODUCTS[factory.type].cost;
       }
     });
+
+    Object.entries(updatedGameState.products).forEach(
+      ([productType, product]) => {
+        if (
+          time.tick %
+            ((DAY_LENGTH /
+              PRODUCTS[productType as keyof typeof PRODUCTS].baseDemandPerDay) *
+              updatedGameState.demandMultiplier +
+              (Math.round(Math.random() * 4) - 2)) ===
+            0 &&
+          Math.random() < SALE_RATE &&
+          product.stock > 0
+        ) {
+          updatedGameState.products[productType as ProductTypes].stock -= 1;
+          updatedGameState.products[productType as ProductTypes].totalSold += 1;
+          updatedGameState.money +=
+            updatedGameState.products[productType as ProductTypes].sellingPrice;
+        }
+      },
+    );
 
     time.tick += 1;
 
