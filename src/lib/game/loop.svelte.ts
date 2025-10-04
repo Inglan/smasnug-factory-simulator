@@ -25,7 +25,8 @@ export function init() {
             (Math.round(Math.random() * 4) - 2)) ===
           0 &&
         Math.random() < FAILURE_RATE &&
-        updatedGameState.money >= PRODUCTS[factory.type].cost
+        updatedGameState.money >= PRODUCTS[factory.type].cost &&
+        !factory.paused
       ) {
         updatedGameState.products[factory.type].stock += 1;
         updatedGameState.products[factory.type].totalProduced += 1;
