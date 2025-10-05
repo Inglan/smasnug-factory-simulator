@@ -6,7 +6,7 @@
     import * as Card from "$lib/components/ui/card/index.js";
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-4 items-start">
     <a
         href="https://github.com/Inglan/smasnug-factory-simulator"
         target="_blank"
