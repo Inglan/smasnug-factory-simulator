@@ -69,7 +69,9 @@
                     <div>{product.totalProduced} produced</div>
                     <div>${product.totalRevenue} revenue</div>
                     <div>${product.totalCost} cost</div>
-                    <div>${product.totalProfit} profit</div>
+                    <div>
+                        ${product.totalProfit > 0 ? product.totalProfit : 0} profit
+                    </div>
                 </Card.Content>
             {/if}
         </Card.Root>
