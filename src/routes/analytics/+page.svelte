@@ -3,6 +3,7 @@
 
     import * as Chart from "$lib/components/ui/chart/index.js";
     import { Area, AreaChart, LinearGradient, LineChart } from "layerchart";
+    import { curveNatural } from "d3-shape";
 </script>
 
 <h2 class="text-2xl">Analytics</h2>
@@ -22,6 +23,14 @@
         }))}
         x="day"
         series={[{ key: "money", color: "blue", label: "Money" }]}
+        props={{
+            area: {
+                curve: curveNatural,
+                "fill-opacity": 0.4,
+                line: { class: "stroke-1" },
+                motion: "tween",
+            },
+        }}
     >
         {#snippet marks({ series, getAreaProps })}
             {#each series as s, i (s.key)}
