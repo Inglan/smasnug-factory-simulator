@@ -11,10 +11,12 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
     expensesToday: 0,
     profitToday: 0,
     productionToday: 0,
+    salesToday: 0,
     dailyRevenue: [],
     dailyExpenses: [],
     dailyProfit: [],
     dailyProduction: [],
+    dailySales: [],
     moneyPerDay: [],
   },
   factories: [],
@@ -84,10 +86,12 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
     expensesToday: number;
     profitToday: number;
     productionToday: number;
+    salesToday: number;
     dailyRevenue: number[];
     dailyExpenses: number[];
     dailyProfit: number[];
     dailyProduction: number[];
+    dailySales: number[];
     moneyPerDay: number[];
   };
   factories: Factory[];
