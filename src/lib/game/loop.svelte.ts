@@ -41,6 +41,8 @@ export function init() {
         updatedGameState.products[factory.type].stock += 1;
         updatedGameState.products[factory.type].totalProduced += 1;
         updatedGameState.factories[factoryIndex].totalProduced += 1;
+        updatedGameState.products[factory.type].totalProfit -=
+          PRODUCTS[factory.type].cost;
         updatedGameState.money -= PRODUCTS[factory.type].cost;
       }
     });
@@ -70,6 +72,10 @@ export function init() {
         ) {
           updatedGameState.products[productType as ProductTypes].stock -= 1;
           updatedGameState.products[productType as ProductTypes].totalSold += 1;
+          updatedGameState.products[productType as ProductTypes].totalRevenue +=
+            updatedGameState.products[productType as ProductTypes].sellingPrice;
+          updatedGameState.products[productType as ProductTypes].totalProfit +=
+            updatedGameState.products[productType as ProductTypes].sellingPrice;
           updatedGameState.money +=
             updatedGameState.products[productType as ProductTypes].sellingPrice;
         }
