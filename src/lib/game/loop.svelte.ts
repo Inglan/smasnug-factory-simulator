@@ -57,6 +57,9 @@ export function init() {
             0 &&
           Math.random() < SALE_RATE &&
           Math.random() < Math.sqrt(product.totalSold) / 20 + 0.05 &&
+          Math.random() <
+            2 ** (-product.sellingPrice * 6) /
+              PRODUCTS[productType as keyof typeof PRODUCTS].priceThreshold &&
           product.stock > 0
         ) {
           updatedGameState.products[productType as ProductTypes].stock -= 1;
