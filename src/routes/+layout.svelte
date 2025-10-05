@@ -13,6 +13,7 @@
         ChartLine,
         Settings,
         Factory,
+        List,
     } from "@lucide/svelte";
     import { Toaster } from "$lib/components/ui/sonner/index.js";
     import * as Dialog from "$lib/components/ui/dialog/index.js";
@@ -33,7 +34,7 @@
                 href: "/advertising",
                 icon: Megaphone,
             },
-            { label: "Settings", href: "/settings", icon: Settings },
+            { label: "More", href: "/more", icon: List },
         ].filter(Boolean),
     ) as Array<{ label: string; href: string; icon: any }>;
 

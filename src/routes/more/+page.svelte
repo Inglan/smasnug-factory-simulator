@@ -5,18 +5,10 @@
     import { toast } from "svelte-sonner";
 </script>
 
-<h2 class="text-2xl">Settings</h2>
-
 <Button
     onclick={() => {
         gameState.reset();
         toast.success("Progress reset!");
         goto("/");
     }}>Reset progress</Button
->
-
-<Button
-    onclick={() => {
-        $gameState.money = Number(prompt("Set money")) || 0;
-    }}>Set money</Button
 >
