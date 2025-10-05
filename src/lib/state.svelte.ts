@@ -84,4 +84,11 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
   campaigns: Campaign[];
 });
 
+export const firstTimeDialogState = persisted(
+  "smasnug-factory-simulator-first-time-dialog",
+  {
+    shown: true,
+  },
+);
+
 export let time = $state({ tick: 0 });
