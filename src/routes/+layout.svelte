@@ -32,7 +32,6 @@
                 href: "/advertising",
                 icon: Megaphone,
             },
-            { label: "Analytics", href: "/analytics", icon: ChartLine },
             { label: "Settings", href: "/settings", icon: Settings },
         ].filter(Boolean),
     ) as Array<{ label: string; href: string; icon: any }>;

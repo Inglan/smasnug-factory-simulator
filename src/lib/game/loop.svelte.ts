@@ -15,24 +15,6 @@ function day() {
   let updatedGameState = get(gameState);
   updatedGameState.currentDay += 1;
 
-  // Analytics
-  updatedGameState.analytics.moneyPerDay.push(updatedGameState.money);
-  updatedGameState.analytics.dailyExpenses.push(
-    updatedGameState.analytics.expensesToday,
-  );
-  updatedGameState.analytics.dailyProduction.push(
-    updatedGameState.analytics.productionToday,
-  );
-  updatedGameState.analytics.dailySales.push(
-    updatedGameState.analytics.salesToday,
-  );
-  updatedGameState.analytics.dailyProfit.push(
-    updatedGameState.analytics.profitToday,
-  );
-  updatedGameState.analytics.dailyRevenue.push(
-    updatedGameState.analytics.revenueToday,
-  );
-
   gameState.set(updatedGameState);
 }
 
