@@ -30,6 +30,12 @@
                 line: { class: "stroke-1" },
                 motion: "tween",
             },
+            xAxis: {
+                ticks: {
+                    interval: $gameState.analytics.moneyPerDay?.length,
+                },
+                format: (value) => value.toFixed(0),
+            },
         }}
     >
         {#snippet marks({ series, getAreaProps })}
