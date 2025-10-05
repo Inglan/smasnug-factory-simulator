@@ -1,7 +1,7 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
     import Button from "$lib/components/ui/button/button.svelte";
-    import { gameState } from "$lib/state.svelte";
+    import { gameState, firstTimeDialogState } from "$lib/state.svelte";
     import { toast } from "svelte-sonner";
     import * as Card from "$lib/components/ui/card/index.js";
 </script>
@@ -23,8 +23,8 @@
         class="w-fit"
         onclick={() => {
             gameState.reset();
-            toast.success("Progress reset!");
-            goto("/");
+            firstTimeDialogState.reset();
+            location.href = "/";
         }}>Reset progress</Button
     >
 </div>
