@@ -1,41 +1,49 @@
 import type { ConstantProduct } from "./types";
 
+export const PRICE_THRESHOLD_MULTIPLIER = 5;
+
 export const PRODUCTS = {
   phone: {
     name: "Galoxy",
     cost: 300,
     baseDemandPerDay: 100,
     productionPerFactoryPerDay: 50,
+    priceThreshold: 900 * PRICE_THRESHOLD_MULTIPLIER,
   },
   tablet: {
     name: "Galoxy Tab",
     cost: 400,
     baseDemandPerDay: 20,
     productionPerFactoryPerDay: 10,
+    priceThreshold: 1200 * PRICE_THRESHOLD_MULTIPLIER,
   },
   tv: {
     name: "The Frome",
     cost: 1000,
     baseDemandPerDay: 5,
     productionPerFactoryPerDay: 2,
+    priceThreshold: 3000 * PRICE_THRESHOLD_MULTIPLIER,
   },
   earbuds: {
     name: "Buds",
     cost: 100,
     baseDemandPerDay: 20,
     productionPerFactoryPerDay: 10,
+    priceThreshold: 300 * PRICE_THRESHOLD_MULTIPLIER,
   },
   watch: {
     name: "Watch",
     cost: 200,
     baseDemandPerDay: 20,
     productionPerFactoryPerDay: 10,
+    priceThreshold: 600 * PRICE_THRESHOLD_MULTIPLIER,
   },
   laptop: {
     name: "Galoxy Book",
     cost: 800,
     baseDemandPerDay: 10,
     productionPerFactoryPerDay: 5,
+    priceThreshold: 2400 * PRICE_THRESHOLD_MULTIPLIER,
   },
 } as {
   phone: ConstantProduct;
