@@ -83,9 +83,12 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
     revenueToday: number;
     expensesToday: number;
     profitToday: number;
+    productionToday: number;
     dailyRevenue: number[];
     dailyExpenses: number[];
     dailyProfit: number[];
+    dailyProduction: number[];
+    moneyPerDay: number[];
   };
   factories: Factory[];
   products: {
