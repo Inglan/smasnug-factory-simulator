@@ -7,7 +7,14 @@
 
 <h2 class="text-2xl">Analytics</h2>
 
-<Chart.Container config={{}}>
+<Chart.Container
+    config={{
+        money: {
+            label: "Money",
+            color: "blue",
+        },
+    }}
+>
     <LineChart
         data={$gameState.analytics.moneyPerDay?.map((money, index) => ({
             money: money,
