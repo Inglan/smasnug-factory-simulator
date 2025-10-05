@@ -21,7 +21,6 @@ export type ConstantProduct = {
   cost: number;
   baseDemandPerDay: number;
   productionPerFactoryPerDay: number;
-  costToStart: number;
   priceThreshold: number;
 };
 
