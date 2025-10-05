@@ -61,7 +61,8 @@ export function init() {
             ) +
               (Math.round(Math.random() * 4) - 2)) ===
             0 &&
-          Math.random() < (SALE_RATE + credibilityScore + costScore) / 3 &&
+          Math.random() < SALE_RATE &&
+          Math.random() < (credibilityScore + costScore) / 2 &&
           product.stock > 0
         ) {
           updatedGameState.products[productType as ProductTypes].stock -= 1;
