@@ -23,6 +23,9 @@ function day() {
   updatedGameState.analytics.dailyProduction.push(
     updatedGameState.analytics.productionToday,
   );
+  updatedGameState.analytics.dailySales.push(
+    updatedGameState.analytics.salesToday,
+  );
   updatedGameState.analytics.dailyProfit.push(
     updatedGameState.analytics.profitToday,
   );
