@@ -27,10 +27,10 @@
         >
             <Card.Header class="w-full flex flex-row gap-2">
                 <div class="flex flex-col">
-                    <Card.Title class="text-2xl">
+                    <Card.Title>
                         {productInfo.name}
                     </Card.Title>
-                    <Card.Description class="text-md">
+                    <Card.Description>
                         {$gameState.factories.filter(
                             (factory) => factory.type === productId,
                         ).length} factories
