@@ -89,7 +89,7 @@
     </Dialog.Content>
 </Dialog.Root>
 
-<div class="container mx-auto flex flex-col gap-4 p-4">
+<div class="container mx-auto flex flex-col gap-4 p-4 min-h-screen">
     <div class="flex flex-col md:flex-row w-full gap-4">
         <h1 class="text-4xl">Smasnug Factory Simulator</h1>
         <div class="grow md:block hidden"></div>
@@ -122,4 +122,11 @@
             {@render children?.()}
         </main>
     {/key}
+    <div class="grow"></div>
+    <span class="text-center">
+        A
+        <a href="https://smasnug.dev" target="_blank" class="underline"
+            >Smasnug development</a
+        > project</span
+    >
 </div>
