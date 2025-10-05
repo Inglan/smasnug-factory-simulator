@@ -7,8 +7,6 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
   currentDay: 0,
   lastOnline: 0,
   factories: [],
-  debug: false,
-  debugUsed: false,
   products: {
     phone: {
       sellingPrice: 900,
@@ -71,8 +69,6 @@ export const gameState = persisted("smasnug-factory-simulator-state", {
   currentDay: number;
   lastOnline: number;
   factories: Factory[];
-  debug: boolean;
-  debugUsed: boolean;
   products: {
     phone: StateProduct;
     tablet: StateProduct;
