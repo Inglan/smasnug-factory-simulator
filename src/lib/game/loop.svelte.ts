@@ -47,6 +47,12 @@ export function init() {
 
     Object.entries(updatedGameState.products).forEach(
       ([productType, product]) => {
+        const credibilityScore = Math.sqrt(product.totalSold) / 20 + 0.05;
+        const costScore =
+          2 **
+          ((-product.sellingPrice * 6) /
+            PRODUCTS[productType as keyof typeof PRODUCTS].priceThreshold);
+
         if (
           time.tick %
             (Math.round(
@@ -55,14 +61,7 @@ export function init() {
             ) +
               (Math.round(Math.random() * 4) - 2)) ===
             0 &&
-          Math.random() <
-            (SALE_RATE +
-              (Math.sqrt(product.totalSold) / 20 + 0.05) +
-              2 **
-                ((-product.sellingPrice * 6) /
-                  PRODUCTS[productType as keyof typeof PRODUCTS]
-                    .priceThreshold)) /
-              3 &&
+          Math.random() < (SALE_RATE + credibilityScore + costScore) / 3 &&
           product.stock > 0
         ) {
           updatedGameState.products[productType as ProductTypes].stock -= 1;
