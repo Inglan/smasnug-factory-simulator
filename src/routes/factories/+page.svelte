@@ -38,12 +38,14 @@
                 <div class="flex md:flex-row flex-col gap-2">
                     {#if factory.paused}
                         <Button
+                            class="hidden md:block"
                             onclick={() => {
                                 factory.paused = !factory.paused;
                             }}>Resume production</Button
                         >
                     {:else}
                         <Button
+                            class="hidden md:block"
                             disabled={getFactoryUpgradeCost(factory) >
                                 $gameState.money ||
                                 factory.level >=
