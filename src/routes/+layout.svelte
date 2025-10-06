@@ -10,8 +10,6 @@
         House,
         Smartphone,
         Megaphone,
-        ChartLine,
-        Settings,
         Factory,
         List,
     } from "@lucide/svelte";
@@ -38,15 +36,7 @@
         ].filter(Boolean),
     ) as Array<{ label: string; href: string; icon: any }>;
 
-    import {
-        blur,
-        crossfade,
-        draw,
-        fade,
-        fly,
-        scale,
-        slide,
-    } from "svelte/transition";
+    import { fly } from "svelte/transition";
     import { expoOut } from "svelte/easing";
     import Separator from "$lib/components/ui/separator/separator.svelte";
     import { onMount } from "svelte";
