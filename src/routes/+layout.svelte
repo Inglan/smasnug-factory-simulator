@@ -2,8 +2,8 @@
     import "../app.css";
     import { ModeWatcher } from "mode-watcher";
     import favicon from "$lib/assets/favicon.svg";
-    import { firstTimeDialogState, gameState } from "$lib/state.svelte";
-    import { Button, buttonVariants } from "$lib/components/ui/button";
+    import { gameState } from "$lib/state.svelte";
+    import { Button } from "$lib/components/ui/button";
     import { page } from "$app/state";
     import { init } from "$lib/game/loop.svelte";
     import {
@@ -14,7 +14,6 @@
         List,
     } from "@lucide/svelte";
     import { Toaster } from "$lib/components/ui/sonner/index.js";
-    import * as Dialog from "$lib/components/ui/dialog/index.js";
 
     onMount(init);
 
@@ -40,6 +39,7 @@
     import { expoOut } from "svelte/easing";
     import Separator from "$lib/components/ui/separator/separator.svelte";
     import { onMount } from "svelte";
+    import FirstTimeDialog from "./first-time-dialog.svelte";
 
     let { children } = $props();
 </script>
@@ -53,31 +53,7 @@
 
 <Toaster position="top-center" />
 
-<Dialog.Root bind:open={$firstTimeDialogState.shown}>
-    <Dialog.Content>
-        <Dialog.Header>
-            <Dialog.Title>Welcome to Smasnug Factory Simulator!</Dialog.Title>
-            <Dialog.Description>
-                This game is in its early stages, so a lot of stuff isn't
-                working. Expect bugs, glitches, random things not being
-                implemented, edge cases, and unexpected behavior. Don't complain
-                to me if you lose your progress. I'm probably not going to fix
-                or change anything to be honest, because I have <a
-                    class="underline"
-                    href="https://github.com/Inglan?tab=repositories&type=source"
-                >
-                    better things to do.</a
-                >
-                <br />
-                <br />
-                Tip: Start by buying a factory.
-            </Dialog.Description>
-        </Dialog.Header>
-        <Dialog.Footer>
-            <Dialog.Close class={buttonVariants()}>Close</Dialog.Close>
-        </Dialog.Footer>
-    </Dialog.Content>
-</Dialog.Root>
+<FirstTimeDialog />
 
 <div class="container mx-auto flex flex-col gap-4 p-4 min-h-screen">
     <div class="flex flex-col md:flex-row w-full gap-4">
