@@ -41,7 +41,7 @@ export const PRODUCTS = {
   laptop: {
     name: "Galoxy Book",
     cost: 800,
-    baseDemandPerDay: 10,
+    baseDemandPerDay: 20,
     productionPerFactoryPerDay: 5,
     priceThreshold: 2400 * PRICE_THRESHOLD_MULTIPLIER,
   },
