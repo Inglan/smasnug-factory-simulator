@@ -9,12 +9,9 @@
         href="https://github.com/Inglan/smasnug-factory-simulator"
         target="_blank"
     >
-        <Card.Root class="w-96">
-            <Card.Header>
-                <Card.Title>Inglan/smasnug-factory-simulator</Card.Title>
-                <Card.Description>GPL-3.0 license</Card.Description>
-            </Card.Header>
-        </Card.Root>
+        <span class="font-bold">Inglan/smasnug-factory-simulator</span>
+        <br />
+        <span>GPL-3.0 license</span>
     </a>
 
     <Button
