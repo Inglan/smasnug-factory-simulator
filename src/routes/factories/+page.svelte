@@ -65,7 +65,7 @@
                         >
                             <EllipsisVertical />
                         </DropdownMenu.Trigger>
-                        <DropdownMenu.Content>
+                        <DropdownMenu.Content align="end">
                             <DropdownMenu.Group>
                                 <DropdownMenu.Label>Factory</DropdownMenu.Label>
                                 <DropdownMenu.Separator />
