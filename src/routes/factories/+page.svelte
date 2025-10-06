@@ -10,10 +10,8 @@
         getProductionPerDay,
         upgradeFactory,
     } from "$lib/game/factories";
-    import { getProduct } from "$lib/game/utils";
     import { gameState } from "$lib/state.svelte";
-    import type { ProductTypes } from "$lib/types";
-    import { EllipsisVertical, Smartphone } from "@lucide/svelte";
+    import { EllipsisVertical } from "@lucide/svelte";
     import clsx from "clsx";
     import * as Card from "$lib/components/ui/card/index.js";
 </script>

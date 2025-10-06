@@ -1,7 +1,6 @@
 <script lang="ts">
     import { PRODUCTS } from "$lib/constants";
     import { gameState } from "$lib/state.svelte";
-    import type { ConstantProduct, StateProduct } from "$lib/types";
     import * as Card from "$lib/components/ui/card/index.js";
 
     const stats = [

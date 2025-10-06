@@ -1,7 +1,7 @@
 <script lang="ts">
     import Button from "$lib/components/ui/button/button.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
-    import { FACTORY_CONSTANTS, PRODUCTS } from "$lib/constants";
+    import { PRODUCTS } from "$lib/constants";
     import { buyFactory, getFactoryCost } from "$lib/game/factories";
     import { gameState } from "$lib/state.svelte";
     import type { ProductTypes } from "$lib/types";
