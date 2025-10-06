@@ -70,6 +70,10 @@
                                 <DropdownMenu.Label>Factory</DropdownMenu.Label>
                                 <DropdownMenu.Separator />
                                 <DropdownMenu.Item
+                                    disabled={getFactoryUpgradeCost(factory) >
+                                        $gameState.money ||
+                                        factory.level >=
+                                            FACTORY_CONSTANTS.upgrades.maxLevel}
                                     onSelect={() => {
                                         upgradeFactory(index);
                                     }}
