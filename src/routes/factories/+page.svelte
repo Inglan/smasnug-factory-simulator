@@ -69,6 +69,16 @@
                                 <DropdownMenu.Separator />
                                 <DropdownMenu.Item
                                     onSelect={() => {
+                                        upgradeFactory(index);
+                                    }}
+                                >
+                                    {factory.level >=
+                                    FACTORY_CONSTANTS.upgrades.maxLevel
+                                        ? "Reached upgrade limit"
+                                        : `Upgrade ($${getFactoryUpgradeCost(factory)})`}
+                                </DropdownMenu.Item>
+                                <DropdownMenu.Item
+                                    onSelect={() => {
                                         factory.paused = !factory.paused;
                                     }}
                                     >{factory.paused ? "Resume" : "Pause"} production</DropdownMenu.Item
