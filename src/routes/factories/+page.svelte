@@ -94,7 +94,7 @@
                                     >Sell for ${Math.round(
                                         factory.purchaseData.value *
                                             FACTORY_CONSTANTS.sellPriceMultiplier,
-                                    )})</DropdownMenu.Item
+                                    )}</DropdownMenu.Item
                                 >
                             </DropdownMenu.Group>
                         </DropdownMenu.Content>
