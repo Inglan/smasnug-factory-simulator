@@ -41,6 +41,8 @@ export function init() {
         updatedGameState.products[factory.type].stock += 1;
         updatedGameState.products[factory.type].totalProduced += 1;
         updatedGameState.factories[factoryIndex].totalProduced += 1;
+        updatedGameState.products[factory.type].totalCost +=
+          PRODUCTS[factory.type].cost;
         updatedGameState.products[factory.type].totalProfit -=
           PRODUCTS[factory.type].cost;
         updatedGameState.money -= PRODUCTS[factory.type].cost;
