@@ -41,6 +41,15 @@
     import { onMount } from "svelte";
     import FirstTimeDialog from "./first-time-dialog.svelte";
 
+    import posthog from "posthog-js";
+    import { browser } from "$app/environment";
+    import { beforeNavigate, afterNavigate } from "$app/navigation";
+
+    if (browser) {
+        beforeNavigate(() => posthog.capture("$pageleave"));
+        afterNavigate(() => posthog.capture("$pageview"));
+    }
+
     let { children } = $props();
 </script>
 
